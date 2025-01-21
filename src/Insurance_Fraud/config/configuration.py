@@ -1,7 +1,7 @@
 from src.Insurance_Fraud.constants import *
 from src.Insurance_Fraud.utils.common import read_yaml, create_directories
 from pathlib import Path
-from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
+from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
 from src.Insurance_Fraud.logger.logger import logger
 
 class ConfigurationManager:
@@ -81,3 +81,47 @@ class ConfigurationManager:
         logger.info(f"Data Transformation Config Data Path: {data_transformation_config.data_path}")
 
         return data_transformation_config
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config['model_trainer']
+        params = self.params['GradientBoostingClassifier']
+
+        logger.info(f"Config: {config}")
+        logger.info(f"Params: {params}")
+        
+        # Check if 'TARGET_COLUMN' exists in schema
+        target_column_info = self.schema['TARGET_COLUMN']
+        if not isinstance(target_column_info, dict) or len(target_column_info) != 1:
+            logger.error("Invalid TARGET_COLUMN format in schema")
+            raise ValueError("TARGET_COLUMN should have exactly one key-value pair in schema")
+        
+        target_column = list(target_column_info.keys())[0]  # Extract the key (e.g., 'fraud_reported')
+        logger.info(f"Target Column: {target_column}")
+
+        create_directories([config['root_dir']])
+        logger.info(f"Root Dir: {config['root_dir']}")
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir = config['root_dir'],
+            train_data_path = config['train_data_path'],
+            test_data_path = config['test_data_path'],
+            model_name = config['model_name'],
+            learning_rate = params['learning_rate'],
+            max_depth = params['max_depth'],
+            n_estimators = params['n_estimators'],
+            subsample = params['subsample'],
+            target_column = target_column
+        )
+
+        logger.info(f"Model Trainer Config: {model_trainer_config}")
+        logger.info(f"Model Trainer Config Root Dir: {model_trainer_config.root_dir}")
+        logger.info(f"Model Trainer Config Train Data Path: {model_trainer_config.train_data_path}")
+        logger.info(f"Model Trainer Config Test Data Path: {model_trainer_config.test_data_path}")
+        logger.info(f"Model Trainer Config Model Name: {model_trainer_config.model_name}")
+        logger.info(f"Model Trainer Config Learning Rate: {model_trainer_config.learning_rate}")
+        logger.info(f"Model Trainer Config Max Depth: {model_trainer_config.max_depth}")
+        logger.info(f"Model Trainer Config N Estimators: {model_trainer_config.n_estimators}")
+        logger.info(f"Model Trainer Config Subsample: {model_trainer_config.subsample}")
+        logger.info(f"Model Trainer Config Target Column: {model_trainer_config.target_column}")
+
+        return model_trainer_config
