@@ -1,0 +1,102 @@
+First 5 rows of Balanced Data:   months_as_customer  age  policy_number  policy_state  policy_deductable  policy_annual_premium  umbrella_limit  insured_zip  insured_sex  insured_education_level  insured_occupation  insured_hobbies  insured_relationship  capital-gains  capital-loss  incident_state  incident_city  incident_location  incident_hour_of_the_day  number_of_vehicles_involved  property_damage  bodily_injuries  witnesses  police_report_available  total_claim_amount  injury_claim  property_claim  vehicle_claim  auto_make  auto_model  fraud_reported  loss_ratio  profitability  age_group  Parked Car  Single Vehicle Collision  Vehicle Theft  Rear Collision  Side Collision  Fire  Other  Police  Minor Damage  Total Loss  Trivial Damage  250/500  500/1000  incident_year  incident_month  incident_day  policy_bind_year  policy_bind_month  policy_bind_day
+0          125         35      442795            0              500                1054.83             7000000       446788          0                  3                     12                 6                   0                   0         -51300            1              3               842                    17                          1                      1                2             3                 0                    88660             8060          16120          64480          8           7             1         7.004288    -76002.04         1           0                  1                   0               0               0          1     0       0          0            1             0           0         1         2015              2             25             1996                7                 7       
+1          123         28      137675            1             2000                1836.02                   0       470559          0                  5                     13                12                   3               38000         -41200            0              5               371                     5                          1                      0                2             1                 1                    79800            13300           6650          59850         13          28             1         3.621965    -57767.76         1           0                  1                   0               0               1          0     0       0          0            0             0           0         0         2015              1              1             2012               12                 3       
+2          136         32      686522            2              500                1169.62                   0       458143          1                  3                     11                19                   1                   0              0            4              0               787                     6                          1                      1                0             0                 0                    55000            10000          10000          35000         12           9             1         3.918652    -40964.56         1           0                  1                   0               0               1          0     0       1          0            0             0           0         0         2015              2              4             2000               12                27       
+3          203         38      155724            1              500                1394.43                   0       606352          1                  5                      7                16                   1                   0              0            5              1               458                     7                          1                      0                0             1                 1                    55440                0           6160          49280          9          26             1         3.313182    -38706.84         2           0                  1                   0               0               0          0     0       0          0            0             0           1         0         2015              1             31             1998                2                20       
+4           43         38      149467            0             1000                1601.47                   0       465764          0                  6                      5                16                   2               64400              0            4              1               207                     1                          3                      1                2             2                 0                    61650             6850           6850          47950          9          35             0         3.207990    -42432.36         2           0                  0                   0               0               0          0     1       0          0            1             0           0         1         2015              2             15             2014                3                11       
+Balanced Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1000 entries, 0 to 999
+Data columns (total 53 columns):
+ #   Column                       Non-Null Count  Dtype  
+---  ------                       --------------  -----  
+ 0   months_as_customer           1000 non-null   int64  
+ 1   age                          1000 non-null   int64  
+ 2   policy_number                1000 non-null   int64  
+ 3   policy_state                 1000 non-null   int64  
+ 4   policy_deductable            1000 non-null   int64  
+ 5   policy_annual_premium        1000 non-null   float64
+ 6   umbrella_limit               1000 non-null   int64  
+ 7   insured_zip                  1000 non-null   int64  
+ 8   insured_sex                  1000 non-null   int64  
+ 9   insured_education_level      1000 non-null   int64  
+ 10  insured_occupation           1000 non-null   int64  
+ 11  insured_hobbies              1000 non-null   int64  
+ 12  insured_relationship         1000 non-null   int64  
+ 13  capital-gains                1000 non-null   int64  
+ 14  capital-loss                 1000 non-null   int64  
+ 15  incident_state               1000 non-null   int64  
+ 16  incident_city                1000 non-null   int64  
+ 17  incident_location            1000 non-null   int64  
+ 18  incident_hour_of_the_day     1000 non-null   int64  
+ 19  number_of_vehicles_involved  1000 non-null   int64  
+ 20  property_damage              1000 non-null   int64  
+ 21  bodily_injuries              1000 non-null   int64  
+ 22  witnesses                    1000 non-null   int64  
+ 23  police_report_available      1000 non-null   int64  
+ 24  total_claim_amount           1000 non-null   int64  
+ 25  injury_claim                 1000 non-null   int64  
+ 26  property_claim               1000 non-null   int64  
+ 27  vehicle_claim                1000 non-null   int64  
+ 28  auto_make                    1000 non-null   int64  
+ 29  auto_model                   1000 non-null   int64  
+ 30  fraud_reported               1000 non-null   int64  
+ 31  loss_ratio                   1000 non-null   float64
+ 32  profitability                1000 non-null   float64
+ 33  age_group                    1000 non-null   int64  
+ 34  Parked Car                   1000 non-null   int64  
+ 35  Single Vehicle Collision     1000 non-null   int64  
+ 36  Vehicle Theft                1000 non-null   int64  
+ 37  Rear Collision               1000 non-null   int64  
+ 38  Side Collision               1000 non-null   int64  
+ 39  Fire                         1000 non-null   int64  
+ 40  Other                        1000 non-null   int64  
+ 41  Police                       1000 non-null   int64  
+ 42  Minor Damage                 1000 non-null   int64  
+ 43  Total Loss                   1000 non-null   int64  
+ 44  Trivial Damage               1000 non-null   int64  
+ 45  250/500                      1000 non-null   int64  
+ 46  500/1000                     1000 non-null   int64  
+ 47  incident_year                1000 non-null   int32  
+ 48  incident_month               1000 non-null   int32  
+ 49  incident_day                 1000 non-null   int32  
+ 50  policy_bind_year             1000 non-null   int32  
+ 51  policy_bind_month            1000 non-null   int32  
+ 52  policy_bind_day              1000 non-null   int32  
+dtypes: float64(3), int32(6), int64(44)
+memory usage: 390.8 KB
+
+Balanced Data Shape:
+(1000, 53)
+Balanced Data Columns:
+Index(['months_as_customer', 'age', 'policy_number', 'policy_state',
+       'policy_deductable', 'policy_annual_premium', 'umbrella_limit',
+       'insured_zip', 'insured_sex', 'insured_education_level',
+       'insured_occupation', 'insured_hobbies', 'insured_relationship',
+       'capital-gains', 'capital-loss', 'incident_state', 'incident_city',
+       'incident_location', 'incident_hour_of_the_day',
+       'number_of_vehicles_involved', 'property_damage', 'bodily_injuries',
+       'witnesses', 'police_report_available', 'total_claim_amount',
+       'injury_claim', 'property_claim', 'vehicle_claim', 'auto_make',
+       'auto_model', 'fraud_reported', 'loss_ratio', 'profitability',
+       'age_group', 'Parked Car', 'Single Vehicle Collision', 'Vehicle Theft',
+       'Rear Collision', 'Side Collision', 'Fire', 'Other', 'Police',
+       'Minor Damage', 'Total Loss', 'Trivial Damage', '250/500', '500/1000',
+       'incident_year', 'incident_month', 'incident_day', 'policy_bind_year',
+       'policy_bind_month', 'policy_bind_day'],
+      dtype='object')
+Balanced Data Description:
+       months_as_customer      age      policy_number  policy_state  policy_deductable  policy_annual_premium  umbrella_limit   insured_zip   insured_sex  insured_education_level  insured_occupation  insured_hobbies  insured_relationship  capital-gains  capital-loss   incident_state  incident_city  incident_location  incident_hour_of_the_day  number_of_vehicles_involved  property_damage  bodily_injuries   witnesses   police_report_available  total_claim_amount  injury_claim  property_claim  vehicle_claim   auto_make   auto_model   fraud_reported  loss_ratio   profitability   age_group   Parked Car   Single Vehicle Collision  Vehicle Theft  Rear Collision  Side Collision     Fire        Other       Police     Minor Damage  Total Loss   Trivial Damage    250/500     500/1000    incident_year  incident_month  incident_day  policy_bind_year  policy_bind_month  policy_bind_day
+count      1000.000000     1000.000000    1000.000000   1000.000000     1000.000000          1000.000000        1.000000e+03     1000.000000  1000.000000        1000.000000            1000.000000       1000.000000         1000.000000        1000.000000    1000.000000    1000.000000    1000.000000      1000.000000            1000.000000                1000.000000            1000.000000      1000.000000    1000.000000        1000.000000             1000.000000     1000.000000     1000.00000    1000.000000   1000.000000  1000.000000    1000.00000    1000.000000    1000.000000  1000.000000  1000.000000         1000.000000         1000.000000     1000.000000     1000.000000   1000.00000  1000.000000  1000.000000   1000.000000  1000.000000    1000.000000   1000.000000  1000.000000     1000.0        1000.000000    1000.000000     1000.000000       1000.000000       1000.000000  
+mean        211.255000       39.514000  551009.832000      0.973000     1141.000000          1247.707810        1.206000e+06   501618.019000     0.537000           2.835000               6.679000          9.678000            2.446000       23733.800000  -26838.200000       3.157000       3.023000       489.223000              11.781000                   1.829000               0.288000         0.965000       1.544000           0.311000            56216.410000     7835.430000     7913.54000   40467.440000      6.502000    19.487000       0.50000       3.921208  -41243.916280     1.909000     0.071000            0.449000            0.065000        0.444000        0.282000      0.21600     0.227000     0.335000      0.286000     0.226000       0.062000      0.384000     0.290000     2015.0           1.488000      14.354000     2001.639000          6.493000         15.720000  
+std         117.850578        9.418201  254176.455556      0.830036      614.814604           246.192367        2.355231e+06    71263.491922     0.498879           1.968159               4.084684          5.665723            1.630258       27632.287652   27989.232535       2.157546       2.048088       288.168462               6.883198                   1.016264               0.453058         0.824897       1.105118           0.463134            25603.378981     4952.562315     4965.37846   18144.247799      4.045536    11.118068       0.50025       2.094706   25742.879634     0.977586     0.256953            0.497641            0.246649        0.497103        0.450198      0.41172     0.419102     0.472227      0.452115     0.418448       0.241276      0.486601     0.453989        0.0           0.538652       8.770839        7.375844          3.421938          8.853247  
+min           1.000000       19.000000  100804.000000      0.000000      500.000000           433.330000       -1.000000e+06   430141.000000     0.000000           0.000000               0.000000          0.000000            0.000000           0.000000 -111100.000000       0.000000       0.000000         0.000000               0.000000                   1.000000               0.000000         0.000000       0.000000           0.000000             2160.000000        0.000000        0.00000    1440.000000      0.000000     0.000000       0.00000       0.120842 -102155.640000     0.000000     0.000000            0.000000            0.000000        0.000000        0.000000      0.00000     0.000000     0.000000      0.000000     0.000000       0.000000      0.000000     0.000000     2015.0           1.000000       1.000000     1990.000000          1.000000          1.000000  
+25%         117.750000       32.000000  339978.000000      0.000000      500.000000          1075.352500        0.000000e+00   450361.250000     0.000000           1.000000               3.000000          5.000000            1.000000           0.000000  -51500.000000       1.000000       1.000000       233.750000               6.000000                   1.000000               0.000000         0.000000       1.000000           0.000000            44842.500000     4770.000000     4837.50000   33390.000000      3.000000    10.000000       0.00000       2.935581  -58913.820000     1.000000     0.000000            0.000000            0.000000        0.000000        0.000000      0.00000     0.000000     0.000000      0.000000     0.000000       0.000000      0.000000     0.000000     2015.0           1.000000       7.000000     1995.000000          4.000000          7.000000  
+50%         210.000000       39.000000  541198.500000      1.000000     1000.000000          1262.080000        0.000000e+00   468136.000000     1.000000           3.000000               7.000000         10.000000            2.000000           0.000000  -24550.000000       4.000000       3.000000       488.500000              12.000000                   1.000000               0.000000         1.000000       2.000000           0.000000            60085.000000     7065.000000     7000.00000   43605.000000      6.000000    20.000000       0.50000       3.859515  -44679.380000     2.000000     0.000000            0.000000            0.000000        0.000000        0.000000      0.00000     0.000000     0.000000      0.000000     0.000000       0.000000      0.000000     0.000000     2015.0           1.000000      14.000000     2001.500000          7.000000         16.000000  
+75%         283.000000       45.000000  752504.000000      2.000000     2000.000000          1400.855000        0.000000e+00   602713.000000     1.000000           5.000000              10.000000         15.000000            4.000000       48800.000000       0.000000       5.000000       5.000000       730.750000              18.000000                   3.000000               1.000000         2.000000       3.000000           1.000000            73425.000000    11920.000000    11350.00000   52205.000000     10.000000    29.000000       1.00000       5.047120  -29274.290000     2.000000     0.000000            1.000000            0.000000        1.000000        1.000000      0.00000     0.000000     1.000000      1.000000     0.000000       0.000000      1.000000     1.000000     2015.0           2.000000      21.000000     2008.000000          9.000000         23.000000  
+max         479.000000       64.000000  999435.000000      2.000000     2000.000000          2047.590000        1.000000e+07   620869.000000     1.000000           6.000000              13.000000         19.000000            5.000000      100500.000000       0.000000       6.000000       6.000000       999.000000              23.000000                   4.000000               1.000000         2.000000       3.000000           1.000000           114920.000000    21450.000000    23670.00000   79560.000000     13.000000    38.000000       1.00000      13.165679   17308.560000     4.000000     1.000000            1.000000            1.000000        1.000000        1.000000      1.00000     1.000000     1.000000      1.000000     1.000000       1.000000      1.000000     1.000000     2015.0           3.000000      31.000000     2015.000000         12.000000         31.000000  
+Balanced Data Value Counts:
+fraud_reported
+1    500
+0    500
+**************************************************

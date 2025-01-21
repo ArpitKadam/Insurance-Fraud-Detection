@@ -1,0 +1,39 @@
+Fraud Reported Distribution:
+fraud_reported
+N    753
+Y    247
+Average Premium by Fraud Status:
+fraud_reported
+N    1258.430000
+Y    1250.236275
+        Median Claim Amounts by Fraud Status:                total_claim_amount  injury_claim  property_claim  vehicle_claim
+fraud_reported                                                                 
+N                     56520.0          6620.0         6560.0         41220.0   
+Y                     61290.0          7240.0         7440.0         44800.0   
+        Median Loss Ratios by Fraud Status:fraud_reported
+N    3.668495
+Y    3.972939
+        Premium vs Claims by Incident Severity:                   policy_annual_premium  total_claim_amount  fraud_reported
+incident_severity                                                           
+Major Damage              1253.79              64067.17            60.51    
+Minor Damage              1260.91              48642.68            10.73    
+Total Loss                1261.90              62081.21            12.86    
+Trivial Damage            1229.64               5301.67             6.67    
+        Deductible Analysis Table:   policy_deductable  fraud_reported  loss_ratio  total_claim_amount  policy_annual_premium
+0         500            25.438596     3.706200      52831.783626          1251.707661     
+1        1000            22.507123     3.642943      51609.772080          1264.653162     
+2        2000            26.384365     3.906999      54001.433225          1252.211303     
+        Profitability Analysis Table:   policy_deductable  profitability  fraud_reported  loss_ratio  total_claim_amount  policy_annual_premium
+0         500        -37811.291696      25.438596     3.706200      52831.783626          1251.707661     
+1        1000        -36433.934131      22.507123     3.642943      51609.772080          1264.653162     
+2        2000        -38974.897590      26.384365     3.906999      54001.433225          1252.211303     
+        Key Statistics:        Fraud Rate: 24.7%
+        Most Common Incident Type: Multi-vehicle Collision
+        Average Total Claim Amount: $52761.94
+        Average vehicle age: 19.9 years
+        Correlation between premium and claims: 0.009
+        Most risky occupation (fraud-wise): exec-managerial
+        Key Demographics Summary:        States with highest average claims:['IN', 'IL', 'OH']
+        Average age of fraudulent claims:39.14
+        Most common education level in fraud cases:JD
+**************************************************

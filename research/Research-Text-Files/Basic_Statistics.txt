@@ -1,0 +1,246 @@
+First few rows:
+   months_as_customer  age  policy_number policy_bind_date policy_state  \
+0          328         48      521585        2014-10-17         OH        
+1          228         42      342868        2006-06-27         IN        
+2          134         29      687698        2000-09-06         OH        
+3          256         41      227811        1990-05-25         IL        
+4          228         44      367455        2014-06-06         IL        
+
+  policy_csl  policy_deductable  policy_annual_premium  umbrella_limit  \
+0   250/500         1000                1406.91                   0      
+1   250/500         2000                1197.22             5000000      
+2   100/300         2000                1413.14             5000000      
+3   250/500         2000                1415.74             6000000      
+4  500/1000         1000                1583.91             6000000      
+
+   insured_zip insured_sex insured_education_level insured_occupation  \
+0    466132         MALE                  MD             craft-repair   
+1    468176         MALE                  MD        machine-op-inspct   
+2    430632       FEMALE                 PhD                    sales   
+3    608117       FEMALE                 PhD             armed-forces   
+4    610706         MALE           Associate                    sales   
+
+  insured_hobbies insured_relationship  capital-gains  capital-loss  \
+0       sleeping            husband         53300              0      
+1        reading     other-relative             0              0      
+2    board-games          own-child         35100              0      
+3    board-games          unmarried         48900         -62400      
+4    board-games          unmarried         66000         -46000      
+
+  incident_date       incident_type        collision_type  incident_severity  \
+0   2015-01-25   Single Vehicle Collision   Side Collision    Major Damage     
+1   2015-01-21              Vehicle Theft                ?    Minor Damage     
+2   2015-02-22    Multi-vehicle Collision   Rear Collision    Minor Damage     
+3   2015-01-10   Single Vehicle Collision  Front Collision    Major Damage     
+4   2015-02-17              Vehicle Theft                ?    Minor Damage     
+
+  authorities_contacted incident_state incident_city incident_location   \
+0         Police              SC           Columbus      9935 4th Drive   
+1         Police              VA          Riverwood        6608 MLK Hwy   
+2         Police              NY           Columbus   7121 Francis Lane   
+3         Police              OH          Arlington    6956 Maple Drive   
+4            NaN              NY          Arlington        3041 3rd Ave   
+
+   incident_hour_of_the_day  number_of_vehicles_involved property_damage  \
+0              5                          1                     YES        
+1              8                          1                       ?        
+2              7                          3                      NO        
+3              5                          1                       ?        
+4             20                          1                      NO        
+
+   bodily_injuries  witnesses police_report_available  total_claim_amount  \
+0         1             2                YES                  71610         
+1         0             0                  ?                   5070         
+2         2             3                 NO                  34650         
+3         1             2                 NO                  63400         
+4         0             1                 NO                   6500         
+
+   injury_claim  property_claim  vehicle_claim auto_make  auto_model  \
+0      6510           13020          52080           Saab      92x     
+1       780             780           3510       Mercedes     E400     
+2      7700            3850          23100          Dodge      RAM     
+3      6340            6340          50720      Chevrolet    Tahoe     
+4      1300             650           4550         Accura      RSX     
+
+   auto_year fraud_reported  
+0    2004           Y        
+1    2007           Y        
+2    2007           N        
+3    2014           Y        
+4    2009           N        
+
+==================================================
+Basic Statistics:
+       months_as_customer      age      policy_number  policy_deductable  \
+count      1000.000000     1000.000000    1000.000000     1000.000000      
+mean        203.954000       38.948000  546238.648000     1136.000000      
+std         115.113174        9.140287  257063.005276      611.864673      
+min           0.000000       19.000000  100804.000000      500.000000      
+25%         115.750000       32.000000  335980.250000      500.000000      
+50%         199.500000       38.000000  533135.000000     1000.000000      
+75%         276.250000       44.000000  759099.750000     2000.000000      
+max         479.000000       64.000000  999435.000000     2000.000000      
+
+       policy_annual_premium  umbrella_limit   insured_zip   capital-gains  \
+count       1000.000000        1.000000e+03     1000.000000    1000.000000   
+mean        1256.406150        1.101000e+06   501214.488000   25126.100000   
+std          244.167395        2.297407e+06    71701.610941   27872.187708   
+min          433.330000       -1.000000e+06   430104.000000       0.000000   
+25%         1089.607500        0.000000e+00   448404.500000       0.000000   
+50%         1257.200000        0.000000e+00   466445.500000       0.000000   
+75%         1415.695000        0.000000e+00   603251.000000   51025.000000   
+max         2047.590000        1.000000e+07   620962.000000  100500.000000   
+
+       capital-loss   incident_hour_of_the_day  number_of_vehicles_involved  \
+count    1000.000000         1000.000000                1000.00000            
+mean   -26793.700000           11.644000                   1.83900            
+std     28104.096686            6.951373                   1.01888            
+min   -111100.000000            0.000000                   1.00000            
+25%    -51500.000000            6.000000                   1.00000            
+50%    -23250.000000           12.000000                   1.00000            
+75%         0.000000           17.000000                   3.00000            
+max         0.000000           23.000000                   4.00000            
+
+       bodily_injuries   witnesses   total_claim_amount  injury_claim  \
+count    1000.000000    1000.000000       1000.00000      1000.000000   
+mean        0.992000       1.487000      52761.94000      7433.420000   
+std         0.820127       1.111335      26401.53319      4880.951853   
+min         0.000000       0.000000        100.00000         0.000000   
+25%         0.000000       1.000000      41812.50000      4295.000000   
+50%         1.000000       1.000000      58055.00000      6775.000000   
+75%         2.000000       2.000000      70592.50000     11305.000000   
+max         2.000000       3.000000     114920.00000     21450.000000   
+
+       property_claim  vehicle_claim   auto_year   
+count    1000.000000    1000.000000   1000.000000  
+mean     7399.570000   37928.950000   2005.103000  
+std      4824.726179   18886.252893      6.015861  
+min         0.000000      70.000000   1995.000000  
+25%      4445.000000   30292.500000   2000.000000  
+50%      6750.000000   42100.000000   2005.000000  
+75%     10885.000000   50822.500000   2010.000000  
+max     23670.000000   79560.000000   2015.000000  
+
+==================================================
+Missing Values:
+months_as_customer              0
+age                             0
+policy_number                   0
+policy_bind_date                0
+policy_state                    0
+policy_csl                      0
+policy_deductable               0
+policy_annual_premium           0
+umbrella_limit                  0
+insured_zip                     0
+insured_sex                     0
+insured_education_level         0
+insured_occupation              0
+insured_hobbies                 0
+insured_relationship            0
+capital-gains                   0
+capital-loss                    0
+incident_date                   0
+incident_type                   0
+collision_type                  0
+incident_severity               0
+authorities_contacted          91
+incident_state                  0
+incident_city                   0
+incident_location               0
+incident_hour_of_the_day        0
+number_of_vehicles_involved     0
+property_damage                 0
+bodily_injuries                 0
+witnesses                       0
+police_report_available         0
+total_claim_amount              0
+injury_claim                    0
+property_claim                  0
+vehicle_claim                   0
+auto_make                       0
+auto_model                      0
+auto_year                       0
+fraud_reported                  0
+dtype: int64
+
+==================================================
+Duplicate Rows:
+0
+
+==================================================
+Unique Values:
+months_as_customer              391
+age                              46
+policy_number                  1000
+policy_bind_date                951
+policy_state                      3
+policy_csl                        3
+policy_deductable                 3
+policy_annual_premium           991
+umbrella_limit                   11
+insured_zip                     995
+insured_sex                       2
+insured_education_level           7
+insured_occupation               14
+insured_hobbies                  20
+insured_relationship              6
+capital-gains                   338
+capital-loss                    354
+incident_date                    60
+incident_type                     4
+collision_type                    4
+incident_severity                 4
+authorities_contacted             4
+incident_state                    7
+incident_city                     7
+incident_location              1000
+incident_hour_of_the_day         24
+number_of_vehicles_involved       4
+property_damage                   3
+bodily_injuries                   3
+witnesses                         4
+police_report_available           3
+total_claim_amount              763
+injury_claim                    638
+property_claim                  626
+vehicle_claim                   726
+auto_make                        14
+auto_model                       39
+auto_year                        21
+fraud_reported                    2
+dtype: int64
+
+==================================================
+Value Counts:
+months_as_customer  age  policy_number  policy_bind_date  policy_state  policy_csl  policy_deductable  policy_annual_premium  umbrella_limit  insured_zip  insured_sex  insured_education_level  insured_occupation  insured_hobbies  insured_relationship  capital-gains  capital-loss  incident_date  incident_type             collision_type   incident_severity  authorities_contacted  incident_state  incident_city  incident_location  incident_hour_of_the_day  number_of_vehicles_involved  property_damage  bodily_injuries  witnesses  police_report_available  total_claim_amount  injury_claim  property_claim  vehicle_claim  auto_make   auto_model  auto_year  fraud_reported
+479                 60   698589         2002-11-28        IL            500/1000    1000               1188.45                0               459295       FEMALE       MD                       exec-managerial     camping          other-relative        0              -44800        2015-01-18     Multi-vehicle Collision   Rear Collision   Total Loss         Other                  SC              Arlington      3275 Pine St       9                         2                            ?                0                3          ?                        53900               5390          10780           37730          Saab        95          2006       N                 1
+0                   32   740518         2011-02-18        OH            500/1000    1000               1377.04                0               441363       MALE         College                  tech-support        base-jumping     wife                  61400          -41100        2015-01-17     Multi-vehicle Collision   Rear Collision   Minor Damage       Ambulance              NY              Springfield    1529 Elm Ridge     6                         4                            ?                1                1          NO                       39720               6620          6620            26480          Accura      MDX         2002       N                 1
+1                   29   357949         2006-05-24        OH            500/1000    500                854.58                 0               612826       FEMALE       JD                       craft-repair        paintball        other-relative        52200           0            2015-01-01     Single Vehicle Collision  Side Collision   Minor Damage       Police                 SC              Northbrook     7178 Best Drive    15                        1                            ?                2                3          YES                      86790               7890          23670           55230          Honda       CRV         2003       N                 1
+                    33   162004         1995-09-19        IL            250/500     500                903.32                 0               451184       FEMALE       High School              transport-moving    yachting         not-in-family         0               0            2015-01-19     Multi-vehicle Collision   Rear Collision   Minor Damage       Police                 NY              Northbend      5925 Tree Hwy      1                         3                            ?                1                0          ?                        31700               6340          3170            22190          Toyota      Highlander  2006       N                 1
+                         388616         1995-12-06        OH            250/500     2000               1391.63                0               466390       MALE         Associate                sales               video-games      husband               61200           0            2015-02-26     Single Vehicle Collision  Side Collision   Total Loss         Other                  NY              Columbus       8524 Pine Lane     23                        1                            YES              0                3          NO                       69400               6940          6940            55520          Mercedes    C300        2000       N                 1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ..
+8                   35   699044         2013-12-05        OH            100/300     2000               1266.92                0               613982       MALE         Masters                  sales               polo             own-child             0               0            2015-01-09     Multi-vehicle Collision   Rear Collision   Major Damage       Other                  OH              Arlington      3418 Texas Lane    16                        3                            NO               1                3          YES                      71500               16500         11000           44000          Ford        Escape      2006       Y                 1
+                    31   425973         2003-02-11        IN            250/500     500                1229.16                4000000         604804       FEMALE       MD                       transport-moving    kayaking         wife                  0              -88300        2015-02-23     Multi-vehicle Collision   Front Collision  Major Damage       Fire                   PA              Hillsdale      9153 3rd Hwy       2                         3                            ?                0                2          YES                      48100               11100         7400            29600          Volkswagen  Jetta       2014       N                 1
+                    21   355085         2012-10-09        IN            500/1000    500                1021.90                0               464237       MALE         High School              handlers-cleaners   hiking           husband               0               0            2015-02-05     Single Vehicle Collision  Front Collision  Major Damage       Other                  WV              Columbus       6117 4th Ave       21                        1                            ?                0                0          ?                        91260               14040         14040           63180          Toyota      Corolla     2012       N                 1
+7                   21   204294         1991-11-16        IN            500/1000    1000               1342.72                0               445638       MALE         Associate                machine-op-inspct   camping          wife                  0              -45300        2015-02-10     Single Vehicle Collision  Front Collision  Total Loss         Other                  NY              Hillsdale      2654 Elm Drive     21                        1                            ?                1                2          ?                        62460               6940          6940            48580          Honda       Accord      2003       N                 1
+6                   27   463727         1992-08-05        OH            250/500     500                1075.71                0               604328       FEMALE       High School              prof-specialty      dancing          unmarried             0              -47400        2015-02-17     Vehicle Theft             ?                Trivial Damage     Police                 WV              Columbus       7615 Weaver Drive  7                         1                            ?                0                1          YES                      3190                580           290             2320           Saab        95          2015       N                 1
+Name: count, Length: 909, dtype: int64
+
+==================================================
+Top 3 Values:
+months_as_customer  age  policy_number  policy_bind_date  policy_state  policy_csl  policy_deductable  policy_annual_premium  umbrella_limit  insured_zip  insured_sex  insured_education_level  insured_occupation  insured_hobbies  insured_relationship  capital-gains  capital-loss  incident_date  incident_type             collision_type  incident_severity  authorities_contacted  incident_state  incident_city  incident_location  incident_hour_of_the_day  number_of_vehicles_involved  property_damage  bodily_injuries  witnesses  police_report_available  total_claim_amount  injury_claim  property_claim  vehicle_claim  auto_make  auto_model  auto_year  fraud_reported
+479                 60   698589         2002-11-28        IL            500/1000    1000               1188.45                0               459295       FEMALE       MD                       exec-managerial     camping          other-relative        0              -44800        2015-01-18     Multi-vehicle Collision   Rear Collision  Total Loss         Other                  SC              Arlington      3275 Pine St       9                         2                            ?                0                3          ?                        53900               5390          10780           37730          Saab       95          2006       N                 1
+0                   32   740518         2011-02-18        OH            500/1000    1000               1377.04                0               441363       MALE         College                  tech-support        base-jumping     wife                  61400          -41100        2015-01-17     Multi-vehicle Collision   Rear Collision  Minor Damage       Ambulance              NY              Springfield    1529 Elm Ridge     6                         4                            ?                1                1          NO                       39720               6620          6620            26480          Accura     MDX         2002       N                 1
+1                   29   357949         2006-05-24        OH            500/1000    500                854.58                 0               612826       FEMALE       JD                       craft-repair        paintball        other-relative        52200           0            2015-01-01     Single Vehicle Collision  Side Collision  Minor Damage       Police                 SC              Northbrook     7178 Best Drive    15                        1                            ?                2                3          YES                      86790               7890          23670           55230          Honda      CRV         2003       N                 1
+Name: count, dtype: int64
+
+==================================================
+Bottom 3 Values:
+months_as_customer  age  policy_number  policy_bind_date  policy_state  policy_csl  policy_deductable  policy_annual_premium  umbrella_limit  insured_zip  insured_sex  insured_education_level  insured_occupation  insured_hobbies  insured_relationship  capital-gains  capital-loss  incident_date  incident_type             collision_type   incident_severity  authorities_contacted  incident_state  incident_city  incident_location  incident_hour_of_the_day  number_of_vehicles_involved  property_damage  bodily_injuries  witnesses  police_report_available  total_claim_amount  injury_claim  property_claim  vehicle_claim  auto_make  auto_model  auto_year  fraud_reported
+8                   21   355085         2012-10-09        IN            500/1000    500                1021.90                0               464237       MALE         High School              handlers-cleaners   hiking           husband               0               0            2015-02-05     Single Vehicle Collision  Front Collision  Major Damage       Other                  WV              Columbus       6117 4th Ave       21                        1                            ?                0                0          ?                        91260               14040         14040           63180          Toyota     Corolla     2012       N                 1
+7                   21   204294         1991-11-16        IN            500/1000    1000               1342.72                0               445638       MALE         Associate                machine-op-inspct   camping          wife                  0              -45300        2015-02-10     Single Vehicle Collision  Front Collision  Total Loss         Other                  NY              Hillsdale      2654 Elm Drive     21                        1                            ?                1                2          ?                        62460               6940          6940            48580          Honda      Accord      2003       N                 1
+6                   27   463727         1992-08-05        OH            250/500     500                1075.71                0               604328       FEMALE       High School              prof-specialty      dancing          unmarried             0              -47400        2015-02-17     Vehicle Theft             ?                Trivial Damage     Police                 WV              Columbus       7615 Weaver Drive  7                         1                            ?                0                1          YES                      3190                580           290             2320           Saab       95          2015       N                 1
+Name: count, dtype: int64
+
+==================================================

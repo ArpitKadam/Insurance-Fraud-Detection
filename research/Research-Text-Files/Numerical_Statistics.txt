@@ -1,0 +1,324 @@
+
+Statistics for months_as_customer:
+Skewness: 0.3621768477780205
+Mean: 203.954
+Median: 199.5
+Standard Deviation: 115.11317442815538
+Variance: 13251.042926926926
+Minimum: 0
+Maximum: 479
+25th Percentile: 115.75
+75th Percentile: 276.25
+IQR: 160.5
+Range: 479
+Interquartile Range: 160.5
+Coefficient of Variation: 0.5644075351704569
+Kurtosis: -0.48542806739146993
+
+==================================================
+
+Statistics for age:
+Skewness: 0.47898804709224163
+Mean: 38.948
+Median: 38.0
+Standard Deviation: 9.140286693580286
+Variance: 83.54484084084085
+Minimum: 19
+Maximum: 64
+25th Percentile: 32.0
+75th Percentile: 44.0
+IQR: 12.0
+Range: 45
+Interquartile Range: 12.0
+Coefficient of Variation: 0.23467923111790814
+Kurtosis: -0.26025501504003934
+
+==================================================
+
+Statistics for policy_number:
+Skewness: 0.03899064217531216
+Mean: 546238.648
+Median: 533135.0
+Standard Deviation: 257063.00527558493
+Variance: 66081388681.31541
+Minimum: 100804
+Maximum: 999435
+25th Percentile: 335980.25
+75th Percentile: 759099.75
+IQR: 423119.5
+Range: 898631
+Interquartile Range: 423119.5
+Coefficient of Variation: 0.47060567064742903
+Kurtosis: -1.1326376885310006
+
+==================================================
+
+Statistics for policy_deductable:
+Skewness: 0.4778872137362794
+Mean: 1136.0
+Median: 1000.0
+Standard Deviation: 611.8646732557604
+Variance: 374378.3783783784
+Minimum: 500
+Maximum: 2000
+25th Percentile: 500.0
+75th Percentile: 2000.0
+IQR: 1500.0
+Range: 1500
+Interquartile Range: 1500.0
+Coefficient of Variation: 0.5386132687110567
+Kurtosis: -1.3769433405240865
+
+==================================================
+
+Statistics for policy_annual_premium:
+Skewness: 0.004401994526610823
+Mean: 1256.4061499999998
+Median: 1257.1999999999998
+Standard Deviation: 244.16739496140704
+Variance: 59617.71676223975
+Minimum: 433.33
+Maximum: 2047.59
+25th Percentile: 1089.6075
+75th Percentile: 1415.6950000000002
+IQR: 326.0875000000001
+Range: 1614.26
+Interquartile Range: 326.0875000000001
+Coefficient of Variation: 0.1943379495248468
+Kurtosis: 0.0738894402077599
+
+==================================================
+
+Statistics for umbrella_limit:
+Skewness: 1.806712198714504
+Mean: 1101000.0
+Median: 0.0
+Standard Deviation: 2297406.598118208
+Variance: 5278077077077.077
+Minimum: -1000000
+Maximum: 10000000
+25th Percentile: 0.0
+75th Percentile: 0.0
+IQR: 0.0
+Range: 11000000
+Interquartile Range: 0.0
+Coefficient of Variation: 2.08665449420364
+Kurtosis: 1.792077309867199
+
+==================================================
+
+Statistics for insured_zip:
+Skewness: 0.8165539258839357
+Mean: 501214.488
+Median: 466445.5
+Standard Deviation: 71701.61094135501
+Variance: 5141121011.585441
+Minimum: 430104
+Maximum: 620962
+25th Percentile: 448404.5
+75th Percentile: 603251.0
+IQR: 154846.5
+Range: 190858
+Interquartile Range: 154846.5
+Coefficient of Variation: 0.14305574291650366
+Kurtosis: -1.1907110539463992
+
+==================================================
+
+Statistics for capital-gains:
+Skewness: 0.4788502295807907
+Mean: 25126.1
+Median: 0.0
+Standard Deviation: 27872.18770813725
+Variance: 776858847.6376374
+Minimum: 0
+Maximum: 100500
+25th Percentile: 0.0
+75th Percentile: 51025.0
+IQR: 51025.0
+Range: 100500
+Interquartile Range: 51025.0
+Coefficient of Variation: 1.1092922382756278
+Kurtosis: -1.276703510816485
+
+==================================================
+
+Statistics for capital-loss:
+Skewness: -0.39147194299389343
+Mean: -26793.7
+Median: -23250.0
+Standard Deviation: 28104.096686436318
+Variance: 789840250.5605608
+Minimum: -111100
+Maximum: 0
+25th Percentile: -51500.0
+75th Percentile: 0.0
+IQR: 51500.0
+Range: 111100
+Interquartile Range: 51500.0
+Coefficient of Variation: -1.0489068955178389
+Kurtosis: -1.3138745001493803
+
+==================================================
+
+Statistics for incident_hour_of_the_day:
+Skewness: -0.03558446643823673
+Mean: 11.644
+Median: 12.0
+Standard Deviation: 6.951372928104605
+Variance: 48.32158558558559
+Minimum: 0
+Maximum: 23
+25th Percentile: 6.0
+75th Percentile: 17.0
+IQR: 11.0
+Range: 23
+Interquartile Range: 11.0
+Coefficient of Variation: 0.5969918351171938
+Kurtosis: -1.1929401516777658
+
+==================================================
+
+Statistics for number_of_vehicles_involved:
+Skewness: 0.502664087487584
+Mean: 1.839
+Median: 1.0
+Standard Deviation: 1.0188803252183825
+Variance: 1.0381171171171168
+Minimum: 1
+Maximum: 4
+25th Percentile: 1.0
+75th Percentile: 3.0
+IQR: 2.0
+Range: 3
+Interquartile Range: 2.0
+Coefficient of Variation: 0.5540404161057001
+Kurtosis: -1.500466560896017
+
+==================================================
+
+Statistics for bodily_injuries:
+Skewness: 0.014777103511243209
+Mean: 0.992
+Median: 1.0
+Standard Deviation: 0.8201271905068193
+Variance: 0.6726086086086086
+Minimum: 0
+Maximum: 2
+25th Percentile: 0.0
+75th Percentile: 2.0
+IQR: 2.0
+Range: 2
+Interquartile Range: 2.0
+Coefficient of Variation: 0.8267411194625194
+Kurtosis: -1.5131780655424822
+
+==================================================
+
+Statistics for witnesses:
+Skewness: 0.019636419856529662
+Mean: 1.487
+Median: 1.0
+Standard Deviation: 1.1113352626755195
+Variance: 1.2350660660660662
+Minimum: 0
+Maximum: 3
+25th Percentile: 1.0
+75th Percentile: 2.0
+IQR: 1.0
+Range: 3
+Interquartile Range: 1.0
+Coefficient of Variation: 0.7473673588940951
+Kurtosis: -1.3436289692221157
+
+==================================================
+
+Statistics for total_claim_amount:
+Skewness: -0.594581988510234
+Mean: 52761.94
+Median: 58055.0
+Standard Deviation: 26401.533190161346
+Variance: 697040954.7911912
+Minimum: 100
+Maximum: 114920
+25th Percentile: 41812.5
+75th Percentile: 70592.5
+IQR: 28780.0
+Range: 114820
+Interquartile Range: 28780.0
+Coefficient of Variation: 0.500389735293307
+Kurtosis: -0.45408142669809326
+
+==================================================
+
+Statistics for injury_claim:
+Skewness: 0.26481087847181833
+Mean: 7433.42
+Median: 6775.0
+Standard Deviation: 4880.951853337071
+Variance: 23823690.994594593
+Minimum: 0
+Maximum: 21450
+25th Percentile: 4295.0
+75th Percentile: 11305.0
+IQR: 7010.0
+Range: 21450
+Interquartile Range: 7010.0
+Coefficient of Variation: 0.656622638480951
+Kurtosis: -0.7630870610902973
+
+==================================================
+
+Statistics for property_claim:
+Skewness: 0.3781687764308289
+Mean: 7399.57
+Median: 6750.0
+Standard Deviation: 4824.726178530528
+Variance: 23277982.697797798
+Minimum: 0
+Maximum: 23670
+25th Percentile: 4445.0
+75th Percentile: 10885.0
+IQR: 6440.0
+Range: 23670
+Interquartile Range: 6440.0
+Coefficient of Variation: 0.6520279122341607
+Kurtosis: -0.37638631173052817
+
+==================================================
+
+Statistics for vehicle_claim:
+Skewness: -0.6210979312228687
+Mean: 37928.95
+Median: 42100.0
+Standard Deviation: 18886.252893198423
+Variance: 356690548.3458458
+Minimum: 70
+Maximum: 79560
+25th Percentile: 30292.5
+75th Percentile: 50822.5
+IQR: 20530.0
+Range: 79490
+Interquartile Range: 20530.0
+Coefficient of Variation: 0.4979376674861399
+Kurtosis: -0.44657292312114905
+
+==================================================
+
+Statistics for auto_year:
+Skewness: -0.04828880711387396
+Mean: 2005.103
+Median: 2005.0
+Standard Deviation: 6.015860834625546
+Variance: 36.190581581581576
+Minimum: 1995
+Maximum: 2015
+25th Percentile: 2000.0
+75th Percentile: 2010.0
+IQR: 10.0
+Range: 20
+Interquartile Range: 10.0
+Coefficient of Variation: 0.0030002752151014416
+Kurtosis: -1.1718677555927974
+
+==================================================

@@ -28,6 +28,8 @@ list_of_files = [
     "Dockerfile",
     "setup.py",
     "research/research.ipynb",
+    "research/Research-Text-Files/",
+    "research/Visualization-Images/",
     "templates/index.html",
 ]
 
