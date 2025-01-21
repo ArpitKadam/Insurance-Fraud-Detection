@@ -43,10 +43,13 @@ def create_directories(path_to_directories: list, verbose=True):
 
 @ensure_annotations
 def save_json(path: Path, data: dict):
-    with open(path, "w") as f:
-        json.dump(data, f, indent=4)
+    # Ensure the path is a pathlib.Path object
+    if isinstance(path, str):
+        path = Path(path)
+    # Now save the data to the file
+    with open(path, 'w') as f:
+        json.dump(data, f)
     logger.info(f"json file saved at: {path}")
-
 
 @ensure_annotations
 def load_json(path: Path) -> dict:

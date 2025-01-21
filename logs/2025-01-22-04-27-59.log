@@ -1,0 +1,399 @@
+[2025-01-22 04:28:07,461: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-01-22 04:28:07,476: INFO: helpers: Accessing as ArpitKadam]
+[2025-01-22 04:28:07,930: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/ArpitKadam/Insurance-Fraud-Detection "HTTP/1.1 200 OK"]
+[2025-01-22 04:28:08,289: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2025-01-22 04:28:08,293: INFO: helpers: Initialized MLflow to track repo "ArpitKadam/Insurance-Fraud-Detection"]
+[2025-01-22 04:28:08,295: INFO: helpers: Repository ArpitKadam/Insurance-Fraud-Detection initialized!]
+[2025-01-22 04:28:08,296: INFO: main: >>>>>>>>>>>>>>>Stage Data Ingestion Stage started<<<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,297: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\config\config.yaml]
+[2025-01-22 04:28:08,315: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\params.yaml]
+[2025-01-22 04:28:08,317: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\schema.yaml]
+[2025-01-22 04:28:08,333: INFO: configuration: Config: {'artifacts_root': 'artifacts', 'data_ingestion': {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}, 'data_validation': {'root_dir': 'artifacts/data_validation', 'unzip_data_dir': 'artifacts/data_ingestion/insurance_claims.csv', 'STATUS_FILE': 'artifacts/data_validation/STATUS.txt'}, 'data_transformation': {'root_dir': 'artifacts/data_transformation', 'data_path': 'artifacts/data_ingestion/insurance_claims.csv'}, 'model_trainer': {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'model_evaluation': {'root_dir': 'artifacts/model_evaluation', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_path': 'artifacts/model_trainer/GradientBoostingClassifier.joblib', 'metric_file_name': 'artifacts/model_evaluation/metrics.json', 'mlflow_uri': 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow', 'target_column': 'fraud_reported', 'mlflow_experiment_name': 'Insurance-Fraud-Detection'}}]
+[2025-01-22 04:28:08,334: INFO: configuration: Params: {'GradientBoostingClassifier': {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}}]
+[2025-01-22 04:28:08,335: INFO: configuration: Schema: {'COLUMNS': {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}, 'TARGET_COLUMN': {'fraud_reported': 'object'}}]
+[2025-01-22 04:28:08,338: INFO: configuration: Artifacts Root: artifacts]
+[2025-01-22 04:28:08,340: INFO: common: Directory created: artifacts]
+[2025-01-22 04:28:08,342: INFO: configuration: Config: {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}]
+[2025-01-22 04:28:08,344: INFO: common: Directory created: artifacts/data_ingestion]
+[2025-01-22 04:28:08,345: INFO: configuration: Root Dir: artifacts/data_ingestion]
+[2025-01-22 04:28:08,346: INFO: configuration: Data Ingestion Config: DataIngestionConfig(root_dir='artifacts/data_ingestion', source_url='https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', local_data_file='artifacts/data_ingestion/data.zip', unzip_dir='artifacts/data_ingestion')]
+[2025-01-22 04:28:08,347: INFO: configuration: Data Ingestion Config Root Dir: artifacts/data_ingestion]
+[2025-01-22 04:28:08,350: INFO: configuration: Data Ingestion Config Source URL: https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip]
+[2025-01-22 04:28:08,351: INFO: configuration: Data Ingestion Config Local Data File: artifacts/data_ingestion/data.zip]
+[2025-01-22 04:28:08,352: INFO: configuration: Data Ingestion Config Unzip Dir: artifacts/data_ingestion]
+[2025-01-22 04:28:08,352: INFO: data_ingestion: Downloading data from https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip]
+[2025-01-22 04:28:08,353: INFO: data_ingestion: Extracting data from artifacts/data_ingestion/data.zip]
+[2025-01-22 04:28:08,359: INFO: data_ingestion: Extracted data from artifacts/data_ingestion/data.zip to artifacts/data_ingestion]
+[2025-01-22 04:28:08,362: INFO: data_ingestion: Data ingestion completed successfully. Files are saved in artifacts/data_ingestion]
+[2025-01-22 04:28:08,363: INFO: main: >>>>>>>>>>>>>>>Stage Data Ingestion Stage completed<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,364: INFO: main: >>>>>>>>>>>>>>>Stage Data Validation Stage started<<<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,365: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\config\config.yaml]
+[2025-01-22 04:28:08,372: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\params.yaml]
+[2025-01-22 04:28:08,374: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\schema.yaml]
+[2025-01-22 04:28:08,385: INFO: configuration: Config: {'artifacts_root': 'artifacts', 'data_ingestion': {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}, 'data_validation': {'root_dir': 'artifacts/data_validation', 'unzip_data_dir': 'artifacts/data_ingestion/insurance_claims.csv', 'STATUS_FILE': 'artifacts/data_validation/STATUS.txt'}, 'data_transformation': {'root_dir': 'artifacts/data_transformation', 'data_path': 'artifacts/data_ingestion/insurance_claims.csv'}, 'model_trainer': {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'model_evaluation': {'root_dir': 'artifacts/model_evaluation', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_path': 'artifacts/model_trainer/GradientBoostingClassifier.joblib', 'metric_file_name': 'artifacts/model_evaluation/metrics.json', 'mlflow_uri': 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow', 'target_column': 'fraud_reported', 'mlflow_experiment_name': 'Insurance-Fraud-Detection'}}]
+[2025-01-22 04:28:08,387: INFO: configuration: Params: {'GradientBoostingClassifier': {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}}]
+[2025-01-22 04:28:08,387: INFO: configuration: Schema: {'COLUMNS': {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}, 'TARGET_COLUMN': {'fraud_reported': 'object'}}]
+[2025-01-22 04:28:08,389: INFO: configuration: Artifacts Root: artifacts]
+[2025-01-22 04:28:08,389: INFO: common: Directory created: artifacts]
+[2025-01-22 04:28:08,390: INFO: common: Directory created: artifacts/data_validation]
+[2025-01-22 04:28:08,391: INFO: configuration: Data Validation Config: DataValidationConfig(root_dir='artifacts/data_validation', unzip_data_dir='artifacts/data_ingestion/insurance_claims.csv', STATUS_FILE='artifacts/data_validation/STATUS.txt', all_schema={'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'})]
+[2025-01-22 04:28:08,394: INFO: configuration: Data Validation Config Root Dir: artifacts/data_validation]
+[2025-01-22 04:28:08,395: INFO: configuration: Data Validation Config Unzip Data Dir: artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,395: INFO: configuration: Data Validation Config Status File: artifacts/data_validation/STATUS.txt]
+[2025-01-22 04:28:08,396: INFO: configuration: Data Validation Config All Schema: {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}]
+[2025-01-22 04:28:08,398: INFO: data_validation: Validating all columns in artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,435: INFO: data_validation: Reading data from artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,436: INFO: data_validation: Checking column: months_as_customer, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,437: INFO: data_validation: Checking column: age, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,437: INFO: data_validation: Checking column: policy_number, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,438: INFO: data_validation: Checking column: policy_bind_date, Expected: object, Found: object]
+[2025-01-22 04:28:08,438: INFO: data_validation: Checking column: policy_state, Expected: object, Found: object]
+[2025-01-22 04:28:08,439: INFO: data_validation: Checking column: policy_csl, Expected: object, Found: object]
+[2025-01-22 04:28:08,439: INFO: data_validation: Checking column: policy_deductable, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,440: INFO: data_validation: Checking column: policy_annual_premium, Expected: float64, Found: float64]
+[2025-01-22 04:28:08,440: INFO: data_validation: Checking column: umbrella_limit, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,442: INFO: data_validation: Checking column: insured_zip, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,442: INFO: data_validation: Checking column: insured_sex, Expected: object, Found: object]
+[2025-01-22 04:28:08,445: INFO: data_validation: Checking column: insured_education_level, Expected: object, Found: object]
+[2025-01-22 04:28:08,446: INFO: data_validation: Checking column: insured_occupation, Expected: object, Found: object]
+[2025-01-22 04:28:08,447: INFO: data_validation: Checking column: insured_hobbies, Expected: object, Found: object]
+[2025-01-22 04:28:08,448: INFO: data_validation: Checking column: insured_relationship, Expected: object, Found: object]
+[2025-01-22 04:28:08,451: INFO: data_validation: Checking column: capital-gains, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,452: INFO: data_validation: Checking column: capital-loss, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,453: INFO: data_validation: Checking column: incident_date, Expected: object, Found: object]
+[2025-01-22 04:28:08,454: INFO: data_validation: Checking column: incident_type, Expected: object, Found: object]
+[2025-01-22 04:28:08,454: INFO: data_validation: Checking column: collision_type, Expected: object, Found: object]
+[2025-01-22 04:28:08,455: INFO: data_validation: Checking column: incident_severity, Expected: object, Found: object]
+[2025-01-22 04:28:08,455: INFO: data_validation: Checking column: authorities_contacted, Expected: object, Found: object]
+[2025-01-22 04:28:08,456: INFO: data_validation: Checking column: incident_state, Expected: object, Found: object]
+[2025-01-22 04:28:08,457: INFO: data_validation: Checking column: incident_city, Expected: object, Found: object]
+[2025-01-22 04:28:08,459: INFO: data_validation: Checking column: incident_location, Expected: object, Found: object]
+[2025-01-22 04:28:08,460: INFO: data_validation: Checking column: incident_hour_of_the_day, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,462: INFO: data_validation: Checking column: number_of_vehicles_involved, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,463: INFO: data_validation: Checking column: property_damage, Expected: object, Found: object]
+[2025-01-22 04:28:08,467: INFO: data_validation: Checking column: bodily_injuries, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,468: INFO: data_validation: Checking column: witnesses, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,468: INFO: data_validation: Checking column: police_report_available, Expected: object, Found: object]
+[2025-01-22 04:28:08,470: INFO: data_validation: Checking column: total_claim_amount, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,471: INFO: data_validation: Checking column: injury_claim, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,471: INFO: data_validation: Checking column: property_claim, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,472: INFO: data_validation: Checking column: vehicle_claim, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,473: INFO: data_validation: Checking column: auto_make, Expected: object, Found: object]
+[2025-01-22 04:28:08,477: INFO: data_validation: Checking column: auto_model, Expected: object, Found: object]
+[2025-01-22 04:28:08,479: INFO: data_validation: Checking column: auto_year, Expected: int64, Found: int64]
+[2025-01-22 04:28:08,480: INFO: data_validation: Checking column: fraud_reported, Expected: object, Found: object]
+[2025-01-22 04:28:08,480: INFO: data_validation: All columns are valid and have correct data types.]
+[2025-01-22 04:28:08,482: INFO: data_validation: Writing validation status to artifacts/data_validation/STATUS.txt]
+[2025-01-22 04:28:08,628: INFO: data_validation: Validation completed successfully. Status file saved to artifacts/data_validation/STATUS.txt]
+[2025-01-22 04:28:08,629: INFO: data_validation: Validation status: True]
+[2025-01-22 04:28:08,630: INFO: main: >>>>>>>>>>>>>>>Stage Data Validation Stage completed<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,631: INFO: main: >>>>>>>>>>>>>>>Stage Data Transformation Stage started<<<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,643: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\config\config.yaml]
+[2025-01-22 04:28:08,657: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\params.yaml]
+[2025-01-22 04:28:08,661: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\schema.yaml]
+[2025-01-22 04:28:08,670: INFO: configuration: Config: {'artifacts_root': 'artifacts', 'data_ingestion': {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}, 'data_validation': {'root_dir': 'artifacts/data_validation', 'unzip_data_dir': 'artifacts/data_ingestion/insurance_claims.csv', 'STATUS_FILE': 'artifacts/data_validation/STATUS.txt'}, 'data_transformation': {'root_dir': 'artifacts/data_transformation', 'data_path': 'artifacts/data_ingestion/insurance_claims.csv'}, 'model_trainer': {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'model_evaluation': {'root_dir': 'artifacts/model_evaluation', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_path': 'artifacts/model_trainer/GradientBoostingClassifier.joblib', 'metric_file_name': 'artifacts/model_evaluation/metrics.json', 'mlflow_uri': 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow', 'target_column': 'fraud_reported', 'mlflow_experiment_name': 'Insurance-Fraud-Detection'}}]
+[2025-01-22 04:28:08,673: INFO: configuration: Params: {'GradientBoostingClassifier': {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}}]
+[2025-01-22 04:28:08,674: INFO: configuration: Schema: {'COLUMNS': {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}, 'TARGET_COLUMN': {'fraud_reported': 'object'}}]
+[2025-01-22 04:28:08,676: INFO: configuration: Artifacts Root: artifacts]
+[2025-01-22 04:28:08,678: INFO: common: Directory created: artifacts]
+[2025-01-22 04:28:08,679: INFO: common: Directory created: artifacts/data_transformation]
+[2025-01-22 04:28:08,680: INFO: configuration: Data Transformation Config: DataTransformationConfig(root_dir='artifacts/data_transformation', data_path='artifacts/data_ingestion/insurance_claims.csv')]
+[2025-01-22 04:28:08,680: INFO: configuration: Data Transformation Config Root Dir: artifacts/data_transformation]
+[2025-01-22 04:28:08,681: INFO: configuration: Data Transformation Config Data Path: artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,682: INFO: data_transformation: Reading data from artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,708: INFO: data_transformation: Data read successfully from artifacts/data_ingestion/insurance_claims.csv]
+[2025-01-22 04:28:08,710: INFO: data_transformation: Numerical columns: Index(['months_as_customer', 'age', 'policy_number', 'policy_deductable',
+       'policy_annual_premium', 'umbrella_limit', 'insured_zip',
+       'capital-gains', 'capital-loss', 'incident_hour_of_the_day',
+       'number_of_vehicles_involved', 'bodily_injuries', 'witnesses',
+       'total_claim_amount', 'injury_claim', 'property_claim', 'vehicle_claim',
+       'auto_year'],
+      dtype='object')]
+[2025-01-22 04:28:08,712: INFO: data_transformation: Categorical columns: Index(['policy_bind_date', 'policy_state', 'policy_csl', 'insured_sex',
+       'insured_education_level', 'insured_occupation', 'insured_hobbies',
+       'insured_relationship', 'incident_date', 'incident_type',
+       'collision_type', 'incident_severity', 'authorities_contacted',
+       'incident_state', 'incident_city', 'incident_location',
+       'property_damage', 'police_report_available', 'auto_make', 'auto_model',
+       'fraud_reported'],
+      dtype='object')]
+[2025-01-22 04:28:08,715: INFO: data_transformation: Replacing '?' with NaN in categorical columns]
+[2025-01-22 04:28:08,720: INFO: data_transformation: Filling NaN values in policy_bind_date with mode of policy_bind_date]
+[2025-01-22 04:28:08,722: INFO: data_transformation: Filling NaN values in policy_state with mode of policy_state]
+[2025-01-22 04:28:08,723: INFO: data_transformation: Filling NaN values in policy_csl with mode of policy_csl]
+[2025-01-22 04:28:08,726: INFO: data_transformation: Filling NaN values in insured_sex with mode of insured_sex]
+[2025-01-22 04:28:08,728: INFO: data_transformation: Filling NaN values in insured_education_level with mode of insured_education_level]
+[2025-01-22 04:28:08,729: INFO: data_transformation: Filling NaN values in insured_occupation with mode of insured_occupation]
+[2025-01-22 04:28:08,731: INFO: data_transformation: Filling NaN values in insured_hobbies with mode of insured_hobbies]
+[2025-01-22 04:28:08,732: INFO: data_transformation: Filling NaN values in insured_relationship with mode of insured_relationship]
+[2025-01-22 04:28:08,737: INFO: data_transformation: Filling NaN values in incident_date with mode of incident_date]
+[2025-01-22 04:28:08,738: INFO: data_transformation: Filling NaN values in incident_type with mode of incident_type]
+[2025-01-22 04:28:08,740: INFO: data_transformation: Filling NaN values in collision_type with mode of collision_type]
+[2025-01-22 04:28:08,742: INFO: data_transformation: Filling NaN values in incident_severity with mode of incident_severity]
+[2025-01-22 04:28:08,743: INFO: data_transformation: Filling NaN values in authorities_contacted with mode of authorities_contacted]
+[2025-01-22 04:28:08,745: INFO: data_transformation: Filling NaN values in incident_state with mode of incident_state]
+[2025-01-22 04:28:08,746: INFO: data_transformation: Filling NaN values in incident_city with mode of incident_city]
+[2025-01-22 04:28:08,748: INFO: data_transformation: Filling NaN values in incident_location with mode of incident_location]
+[2025-01-22 04:28:08,750: INFO: data_transformation: Filling NaN values in property_damage with mode of property_damage]
+[2025-01-22 04:28:08,752: INFO: data_transformation: Filling NaN values in police_report_available with mode of police_report_available]
+[2025-01-22 04:28:08,754: INFO: data_transformation: Filling NaN values in auto_make with mode of auto_make]
+[2025-01-22 04:28:08,755: INFO: data_transformation: Filling NaN values in auto_model with mode of auto_model]
+[2025-01-22 04:28:08,757: INFO: data_transformation: Filling NaN values in fraud_reported with mode of fraud_reported]
+[2025-01-22 04:28:08,760: INFO: data_transformation: Filling NaN values in months_as_customer with median of months_as_customer]
+[2025-01-22 04:28:08,762: INFO: data_transformation: Filling NaN values in age with median of age]
+[2025-01-22 04:28:08,763: INFO: data_transformation: Filling NaN values in policy_number with median of policy_number]
+[2025-01-22 04:28:08,765: INFO: data_transformation: Filling NaN values in policy_deductable with median of policy_deductable]
+[2025-01-22 04:28:08,767: INFO: data_transformation: Filling NaN values in policy_annual_premium with median of policy_annual_premium]
+[2025-01-22 04:28:08,769: INFO: data_transformation: Filling NaN values in umbrella_limit with median of umbrella_limit]
+[2025-01-22 04:28:08,771: INFO: data_transformation: Filling NaN values in insured_zip with median of insured_zip]
+[2025-01-22 04:28:08,772: INFO: data_transformation: Filling NaN values in capital-gains with median of capital-gains]
+[2025-01-22 04:28:08,773: INFO: data_transformation: Filling NaN values in capital-loss with median of capital-loss]
+[2025-01-22 04:28:08,776: INFO: data_transformation: Filling NaN values in incident_hour_of_the_day with median of incident_hour_of_the_day]
+[2025-01-22 04:28:08,777: INFO: data_transformation: Filling NaN values in number_of_vehicles_involved with median of number_of_vehicles_involved]
+[2025-01-22 04:28:08,779: INFO: data_transformation: Filling NaN values in bodily_injuries with median of bodily_injuries]
+[2025-01-22 04:28:08,780: INFO: data_transformation: Filling NaN values in witnesses with median of witnesses]
+[2025-01-22 04:28:08,783: INFO: data_transformation: Filling NaN values in total_claim_amount with median of total_claim_amount]
+[2025-01-22 04:28:08,784: INFO: data_transformation: Filling NaN values in injury_claim with median of injury_claim]
+[2025-01-22 04:28:08,786: INFO: data_transformation: Filling NaN values in property_claim with median of property_claim]
+[2025-01-22 04:28:08,788: INFO: data_transformation: Filling NaN values in vehicle_claim with median of vehicle_claim]
+[2025-01-22 04:28:08,789: INFO: data_transformation: Filling NaN values in auto_year with median of auto_year]
+[2025-01-22 04:28:08,791: INFO: data_transformation: Calculating loss ratio]
+[2025-01-22 04:28:08,793: INFO: data_transformation: Calculating profitability]
+[2025-01-22 04:28:08,794: INFO: data_transformation: Calculating vehicle age]
+[2025-01-22 04:28:08,797: INFO: data_transformation: Dropping auto_year column]
+[2025-01-22 04:28:08,807: INFO: data_transformation: Dropping incident_date column]
+[2025-01-22 04:28:08,816: INFO: data_transformation: Dropping policy_bind_date column]
+[2025-01-22 04:28:08,822: INFO: data_transformation: One-hot encoding incident_type column]
+[2025-01-22 04:28:08,828: INFO: data_transformation: One-hot encoding collision_type column]
+[2025-01-22 04:28:08,834: INFO: data_transformation: One-hot encoding authorities_contacted column]
+[2025-01-22 04:28:08,839: INFO: data_transformation: One-hot encoding incident_severity column]
+[2025-01-22 04:28:08,845: INFO: data_transformation: One-hot encoding policy_csl column]
+[2025-01-22 04:28:08,849: INFO: data_transformation: Creating age_group column]
+[2025-01-22 04:28:08,875: INFO: data_transformation: Encoding categorical columns]
+[2025-01-22 04:28:08,876: INFO: data_transformation: Separating majority and minority classes]
+[2025-01-22 04:28:08,878: INFO: data_transformation: Successfully separated majority and minority classes]
+[2025-01-22 04:28:08,878: INFO: data_transformation: Performing undersampling on the majority class]
+[2025-01-22 04:28:08,881: INFO: data_transformation: Performing oversampling on the minority class]
+[2025-01-22 04:28:08,886: INFO: data_transformation: Successfully combined balanced classes]
+[2025-01-22 04:28:08,887: INFO: data_transformation: Shuffling the dataset]
+[2025-01-22 04:28:08,889: INFO: data_transformation: Successfully shuffled the dataset]
+[2025-01-22 04:28:08,892: INFO: data_transformation: Successfully split the dataset into train and test]
+[2025-01-22 04:28:08,908: INFO: data_transformation: Successfully saved train data to artifacts/data_transformation\train.csv]
+[2025-01-22 04:28:08,918: INFO: data_transformation: Successfully saved test data to artifacts/data_transformation\test.csv]
+[2025-01-22 04:28:08,918: INFO: data_transformation: Data transformation completed successfully and saved to artifacts/data_transformation]
+[2025-01-22 04:28:08,919: INFO: data_transformation: Train data shape: (750, 55)]
+[2025-01-22 04:28:08,920: INFO: data_transformation: Test data shape: (250, 55)]
+[2025-01-22 04:28:08,920: INFO: main: >>>>>>>>>>>>>>>Stage Data Transformation Stage completed<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,921: INFO: main: >>>>>>>>>>>>>>>Stage Model Trainer Stage started<<<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:08,922: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\config\config.yaml]
+[2025-01-22 04:28:08,928: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\params.yaml]
+[2025-01-22 04:28:08,930: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\schema.yaml]
+[2025-01-22 04:28:08,939: INFO: configuration: Config: {'artifacts_root': 'artifacts', 'data_ingestion': {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}, 'data_validation': {'root_dir': 'artifacts/data_validation', 'unzip_data_dir': 'artifacts/data_ingestion/insurance_claims.csv', 'STATUS_FILE': 'artifacts/data_validation/STATUS.txt'}, 'data_transformation': {'root_dir': 'artifacts/data_transformation', 'data_path': 'artifacts/data_ingestion/insurance_claims.csv'}, 'model_trainer': {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'model_evaluation': {'root_dir': 'artifacts/model_evaluation', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_path': 'artifacts/model_trainer/GradientBoostingClassifier.joblib', 'metric_file_name': 'artifacts/model_evaluation/metrics.json', 'mlflow_uri': 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow', 'target_column': 'fraud_reported', 'mlflow_experiment_name': 'Insurance-Fraud-Detection'}}]
+[2025-01-22 04:28:08,942: INFO: configuration: Params: {'GradientBoostingClassifier': {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}}]
+[2025-01-22 04:28:08,943: INFO: configuration: Schema: {'COLUMNS': {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}, 'TARGET_COLUMN': {'fraud_reported': 'object'}}]
+[2025-01-22 04:28:08,946: INFO: configuration: Artifacts Root: artifacts]
+[2025-01-22 04:28:08,947: INFO: common: Directory created: artifacts]
+[2025-01-22 04:28:08,949: INFO: configuration: Config: {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}]
+[2025-01-22 04:28:08,950: INFO: configuration: Params: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}]
+[2025-01-22 04:28:08,952: INFO: configuration: Target Column: fraud_reported]
+[2025-01-22 04:28:08,953: INFO: common: Directory created: artifacts/model_trainer]
+[2025-01-22 04:28:08,954: INFO: configuration: Root Dir: artifacts/model_trainer]
+[2025-01-22 04:28:08,954: INFO: configuration: Model Trainer Config: ModelTrainerConfig(root_dir='artifacts/model_trainer', train_data_path='artifacts/data_transformation/train.csv', test_data_path='artifacts/data_transformation/test.csv', model_name='GradientBoostingClassifier.joblib', learning_rate=0.1, max_depth=5, n_estimators=100, subsample=0.8, target_column='fraud_reported')]
+[2025-01-22 04:28:08,956: INFO: configuration: Model Trainer Config Root Dir: artifacts/model_trainer]
+[2025-01-22 04:28:08,956: INFO: configuration: Model Trainer Config Train Data Path: artifacts/data_transformation/train.csv]
+[2025-01-22 04:28:08,957: INFO: configuration: Model Trainer Config Test Data Path: artifacts/data_transformation/test.csv]
+[2025-01-22 04:28:08,959: INFO: configuration: Model Trainer Config Model Name: GradientBoostingClassifier.joblib]
+[2025-01-22 04:28:08,959: INFO: configuration: Model Trainer Config Learning Rate: 0.1]
+[2025-01-22 04:28:08,959: INFO: configuration: Model Trainer Config Max Depth: 5]
+[2025-01-22 04:28:08,960: INFO: configuration: Model Trainer Config N Estimators: 100]
+[2025-01-22 04:28:08,960: INFO: configuration: Model Trainer Config Subsample: 0.8]
+[2025-01-22 04:28:08,961: INFO: configuration: Model Trainer Config Target Column: fraud_reported]
+[2025-01-22 04:28:08,962: INFO: model_trainer: Loading train and test data]
+[2025-01-22 04:28:09,088: INFO: model_trainer: Train Data:    months_as_customer  age  policy_number  policy_state  ...  Trivial Damage  250/500  500/1000  age_group
+0                 190   40         390381             2  ...               1        0         1          2
+1                 157   31         121439             1  ...               0        0         1          1
+2                 437   58         640474             1  ...               0        0         1          4
+3                 344   51         437442             0  ...               0        0         0          3
+4                 239   39         730819             1  ...               0        1         0          2
+
+[5 rows x 55 columns]]
+[2025-01-22 04:28:09,191: INFO: model_trainer: Test Data:    months_as_customer  age  policy_number  policy_state  ...  Trivial Damage  250/500  500/1000  age_group
+0                 225   41         330591             2  ...               0        0         1          2
+1                 129   30         150181             0  ...               0        0         1          1
+2                 398   55         815883             2  ...               0        1         0          3
+3                 111   27         514065             1  ...               0        1         0          1
+4                   4   34         424358             2  ...               0        0         1          1
+
+[5 rows x 55 columns]]
+[2025-01-22 04:28:09,194: INFO: model_trainer: Dropping target column from train and test data]
+[2025-01-22 04:28:09,279: INFO: model_trainer: Train X:    months_as_customer  age  policy_number  policy_state  ...  Trivial Damage  250/500  500/1000  age_group
+0                 190   40         390381             2  ...               1        0         1          2
+1                 157   31         121439             1  ...               0        0         1          1
+2                 437   58         640474             1  ...               0        0         1          4
+3                 344   51         437442             0  ...               0        0         0          3
+4                 239   39         730819             1  ...               0        1         0          2
+
+[5 rows x 54 columns]]
+[2025-01-22 04:28:09,282: INFO: model_trainer: Train Y: 0    0
+1    1
+2    0
+3    1
+4    1
+Name: fraud_reported, dtype: int64]
+[2025-01-22 04:28:09,366: INFO: model_trainer: Test X:    months_as_customer  age  policy_number  policy_state  ...  Trivial Damage  250/500  500/1000  age_group
+0                 225   41         330591             2  ...               0        0         1          2
+1                 129   30         150181             0  ...               0        0         1          1
+2                 398   55         815883             2  ...               0        1         0          3
+3                 111   27         514065             1  ...               0        1         0          1
+4                   4   34         424358             2  ...               0        0         1          1
+
+[5 rows x 54 columns]]
+[2025-01-22 04:28:09,369: INFO: model_trainer: Test Y: 0    1
+1    0
+2    1
+3    0
+4    1
+Name: fraud_reported, dtype: int64]
+[2025-01-22 04:28:09,372: INFO: model_trainer: Initializing Standard Scaler]
+[2025-01-22 04:28:09,378: INFO: model_trainer: Fitting Standard Scaler on train data]
+[2025-01-22 04:28:09,388: INFO: model_trainer: Transforming test data using Standard Scaler]
+[2025-01-22 04:28:09,394: INFO: model_trainer: Scaling train and test data]
+[2025-01-22 04:28:09,400: INFO: model_trainer: Train X Scaled: [[-0.17568976  0.06001928 -0.62775319  1.19438026  1.38538282 -1.19709926
+  -0.48765687  1.53320757 -0.92543808  0.07538275 -0.87928756 -0.98932158
+  -0.31491112  0.47828818 -0.97017097  0.37213999 -0.52806058  1.1541639
+  -0.27039333 -0.80726326 -0.6567326   1.24340941 -0.49079132  1.53238843
+  -1.90369635 -1.41957716 -1.44073592 -1.9072353   0.6314373   1.39261906
+  -1.59549446  1.75799529  0.70659478  0.          0.91185832 -1.37467896
+   0.7137124  -1.5864889   1.2648772   3.59010987 -0.90575292 -0.27294426
+   1.09812675 -0.61742649 -0.51454395  3.66375176 -0.52902125 -0.62773565
+  -0.64842466 -0.52489066  3.74165739 -0.75870301  1.56723361  0.09727771]
+ [-0.45978239 -0.90919151 -1.69129189 -0.03609391 -1.05749441  0.00382513
+   2.60437036 -0.60471186  1.08056932 -0.42941247 -0.63367651  0.96048803
+   0.30662398  0.61519861 -0.53758668 -0.55820998 -1.52065565  0.5446337
+  -1.4409272   2.15094902 -0.6567326   1.24340941  0.40919277 -0.65257606
+  -0.31642476 -0.59967629  0.33087258 -0.37286164 -1.60242108  1.21395599
+  -0.33922274  0.31479404 -0.99850845  0.          0.91185832 -0.00910383
+  -1.57440254  0.45895971 -1.5652478  -0.27854301 -0.90575292 -0.27294426
+   1.09812675 -0.61742649 -0.51454395 -0.27294426  1.89028324 -0.62773565
+  -0.64842466 -0.52489066 -0.26726124 -0.75870301  1.56723361 -0.93030372]
+ [ 1.95070047  1.99844084  0.36124661 -0.03609391  1.38538282 -0.26617971
+  -0.48765687  1.66165294  1.08056932 -1.43900291 -1.12489862 -0.45755532
+   0.30662398  1.53033676 -0.17292885  0.37213999  0.46453449  0.73511189
+   1.63172422 -0.80726326  1.52268975 -1.19464826 -1.39077541 -0.65257606
+  -0.00587163  0.66582288  0.65298321 -0.36799061 -0.60959513  0.94596139
+   0.01642878 -0.02381235  0.19506381  0.         -0.91185832  0.5598858
+   1.11749739  0.45895971 -1.6784528  -0.27854301  1.10405385 -0.27294426
+  -0.91064169 -0.61742649 -0.51454395 -0.27294426 -0.52902125 -0.62773565
+  -0.64842466  1.90515869 -0.26726124 -0.75870301  1.56723361  2.15244056]
+ [ 1.15007581  1.24461023 -0.44164914 -1.26656808 -0.243202   -1.219179
+  -0.48765687 -0.92614937 -0.92543808  1.0849732   1.08560085  0.60597719
+  -0.93644622 -0.85118416 -0.43390945 -1.02338497 -0.03176304  0.28142748
+   0.90014055  1.16487826 -0.6567326   1.24340941  0.40919277  1.53238843
+   0.74559028  1.9016155   0.74047005  0.33127245 -1.1060081   1.66061366
+   1.28669323 -0.87653026 -0.14595684  0.          0.91185832 -1.37467896
+   0.8483074  -0.12545418  1.2648772  -0.27854301 -0.90575292 -0.27294426
+  -0.91064169  1.61962601  1.94346857 -0.27294426 -0.52902125 -0.62773565
+  -0.64842466 -0.52489066 -0.26726124 -0.75870301 -0.63806697  1.12485914]
+ [ 0.24614473 -0.04767081  0.71851845 -0.03609391  1.38538282 -2.59300662
+  -0.48765687 -0.90717    -0.92543808  0.07538275  0.8399898   0.07421094
+   1.54969419  0.74130033 -0.37313315  0.37213999  0.96083203 -1.06230955
+  -0.27039333 -0.80726326 -0.6567326   1.24340941  1.30917685  1.53238843
+   1.22445555  1.62039346  0.0226803   1.27949913 -1.1060081   1.66061366
+   3.76961276 -1.50529321 -1.51003942  0.         -0.91185832 -1.26088103
+  -1.57440254  0.45895971  0.2460322  -0.27854301  1.10405385 -0.27294426
+  -0.91064169 -0.61742649  1.94346857 -0.27294426 -0.52902125 -0.62773565
+  -0.64842466 -0.52489066 -0.26726124  1.3180388  -0.63806697  0.09727771]]]
+[2025-01-22 04:28:09,412: INFO: model_trainer: Test X Scaled: [[ 0.12562059  0.16770936 -0.86419442  1.19438026  1.38538282 -0.62922315
+  -0.48765687 -0.36982985  1.08056932 -0.42941247 -0.87928756 -0.2802999
+   0.92815909  0.63321315 -0.34453253 -1.02338497 -0.03176304 -0.61901486
+   1.19277402  1.16487826 -0.6567326   1.24340941  0.40919277 -0.65257606
+   0.55389082 -0.27686508  0.97907052  0.59106058  1.37605676 -0.12601702
+   0.69595078 -0.62037039 -0.99850845  0.         -0.91185832  0.5598858
+  -1.17061755  0.45895971 -1.2256328  -0.27854301 -0.90575292 -0.27294426
+  -0.91064169  1.61962601 -0.51454395 -0.27294426 -0.52902125  1.59302726
+  -0.64842466 -0.52489066 -0.26726124 -0.75870301  1.56723361  0.09727771]
+ [-0.70083067 -1.01688159 -1.57763084 -1.26656808  1.38538282 -1.35297073
+  -0.48765687 -0.71591095 -0.92543808  1.58976842  1.08560085  1.49225429
+  -1.55798133  1.00431247  0.94964527  0.37213999 -0.52806058  1.50048788
+  -0.70934353 -0.80726326 -0.6567326   0.02438058  1.30917685 -0.65257606
+   0.7057168   1.13320599 -0.22188518  0.74693346  1.12785027 -0.39401162
+   1.35232807 -0.85181702 -0.6574878   0.         -0.91185832 -0.12290176
+   0.7137124  -0.41766113 -1.1124278  -0.27854301  1.10405385 -0.27294426
+  -0.91064169 -0.61742649 -0.51454395 -0.27294426  1.89028324 -0.62773565
+  -0.64842466  1.90515869 -0.26726124 -0.75870301  1.56723361 -0.93030372]
+ [ 1.61495464  1.67537058  1.05490643  1.19438026  1.38538282  0.19847978
+  -0.48765687 -0.64895478  1.08056932  0.58017798 -0.63367651  1.13774345
+   1.54969419  1.53393966 -0.8271679   0.83731497 -0.52806058  0.38186143
+   0.90014055 -0.80726326 -0.6567326   0.02438058  1.30917685  1.53238843
+  -0.73663    -0.88287876 -0.23779188 -0.7338589  -1.1060081   1.57128212
+  -0.73035712  0.75394766  1.21812575  0.         -0.91185832 -0.6918914
+  -1.43980754  0.16675276 -1.5652478  -0.27854301  1.10405385 -0.27294426
+   1.09812675 -0.61742649  1.94346857 -0.27294426 -0.52902125 -0.62773565
+  -0.64842466 -0.52489066 -0.26726124  1.3180388  -0.63806697  1.12485914]
+ [-0.85579028 -1.33995185 -0.13864133 -0.03609391 -1.05749441  0.4386072
+   1.27921583  1.44899102 -0.92543808  1.0849732   1.3312119  -0.2802999
+  -1.55798133  0.98990085  0.94964527  0.83731497  1.45712956  1.67364987
+   0.02224014 -0.80726326  1.52268975  1.24340941  1.30917685 -0.65257606
+   1.34254243  1.73129792  1.72270866  0.95314029 -1.60242108  1.03529292
+   0.8124896  -1.28496602 -0.6574878   0.         -0.91185832  0.33228995
+   0.98290239 -1.5864889  -1.3388378  -0.27854301  1.10405385 -0.27294426
+  -0.91064169  1.61962601 -0.51454395 -0.27294426 -0.52902125  1.59302726
+  -0.64842466  1.90515869 -0.26726124  1.3180388  -0.63806697 -0.93030372]
+ [-1.77693909 -0.58612125 -0.49339019  1.19438026 -1.05749441  0.10683655
+  -0.48765687  1.61453564 -0.92543808 -0.93420769 -0.87928756 -1.52108784
+  -0.31491112 -0.85118416  0.94964527  1.30248996  0.46453449  0.45112623
+  -1.73356067  2.15094902 -0.6567326  -1.19464826 -1.39077541 -0.65257606
+   0.41893439 -0.34023906  0.85181694  0.45250691 -0.85780162  1.12462446
+   0.22931256 -0.4043124   1.55914639  0.          0.91185832 -0.23669969
+   0.17533242 -0.41766113  0.9252622  -0.27854301 -0.90575292 -0.27294426
+  -0.91064169  1.61962601 -0.51454395 -0.27294426 -0.52902125  1.59302726
+  -0.64842466 -0.52489066 -0.26726124 -0.75870301  1.56723361 -0.93030372]]]
+[2025-01-22 04:28:09,418: INFO: model_trainer: Initializing Gradient Boosting Classifier]
+[2025-01-22 04:28:09,421: INFO: model_trainer: Model: GradientBoostingClassifier(max_depth=5, subsample=0.8)]
+[2025-01-22 04:28:09,422: INFO: model_trainer: Fitting model on train data]
+[2025-01-22 04:28:10,615: INFO: model_trainer: Dumping model to disk]
+[2025-01-22 04:28:10,633: INFO: model_trainer: Model trained and saved to artifacts/model_trainer/GradientBoostingClassifier.joblib]
+[2025-01-22 04:28:10,635: INFO: model_trainer: Model: GradientBoostingClassifier(max_depth=5, subsample=0.8)]
+[2025-01-22 04:28:10,635: INFO: stage_04_model_trainer: Model training completed successfully]
+[2025-01-22 04:28:10,636: INFO: main: >>>>>>>>>>>>>>>Stage Model Trainer Stage completed<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:10,638: INFO: main: >>>>>>>>>>>>>>>Stage Model Evaluation Stage started<<<<<<<<<<<<<<<<<<<<<<<<<]
+[2025-01-22 04:28:10,638: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\config\config.yaml]
+[2025-01-22 04:28:10,648: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\params.yaml]
+[2025-01-22 04:28:10,652: INFO: common: Attempting to read YAML file from: C:\Users\Arpit Kadam\Desktop\Insurance-Fraud-Detection\schema.yaml]
+[2025-01-22 04:28:10,660: INFO: configuration: Config: {'artifacts_root': 'artifacts', 'data_ingestion': {'root_dir': 'artifacts/data_ingestion', 'source_url': 'https://github.com/ArpitKadam/Insurance-Fraud-Detection/raw/refs/heads/main/data/data.zip', 'local_data_file': 'artifacts/data_ingestion/data.zip', 'unzip_dir': 'artifacts/data_ingestion'}, 'data_validation': {'root_dir': 'artifacts/data_validation', 'unzip_data_dir': 'artifacts/data_ingestion/insurance_claims.csv', 'STATUS_FILE': 'artifacts/data_validation/STATUS.txt'}, 'data_transformation': {'root_dir': 'artifacts/data_transformation', 'data_path': 'artifacts/data_ingestion/insurance_claims.csv'}, 'model_trainer': {'root_dir': 'artifacts/model_trainer', 'train_data_path': 'artifacts/data_transformation/train.csv', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_name': 'GradientBoostingClassifier.joblib', 'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'model_evaluation': {'root_dir': 'artifacts/model_evaluation', 'test_data_path': 'artifacts/data_transformation/test.csv', 'model_path': 'artifacts/model_trainer/GradientBoostingClassifier.joblib', 'metric_file_name': 'artifacts/model_evaluation/metrics.json', 'mlflow_uri': 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow', 'target_column': 'fraud_reported', 'mlflow_experiment_name': 'Insurance-Fraud-Detection'}}]
+[2025-01-22 04:28:10,663: INFO: configuration: Params: {'GradientBoostingClassifier': {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}}]
+[2025-01-22 04:28:10,665: INFO: configuration: Schema: {'COLUMNS': {'months_as_customer': 'int64', 'age': 'int64', 'policy_number': 'int64', 'policy_bind_date': 'object', 'policy_state': 'object', 'policy_csl': 'object', 'policy_deductable': 'int64', 'policy_annual_premium': 'float64', 'umbrella_limit': 'int64', 'insured_zip': 'int64', 'insured_sex': 'object', 'insured_education_level': 'object', 'insured_occupation': 'object', 'insured_hobbies': 'object', 'insured_relationship': 'object', 'capital-gains': 'int64', 'capital-loss': 'int64', 'incident_date': 'object', 'incident_type': 'object', 'collision_type': 'object', 'incident_severity': 'object', 'authorities_contacted': 'object', 'incident_state': 'object', 'incident_city': 'object', 'incident_location': 'object', 'incident_hour_of_the_day': 'int64', 'number_of_vehicles_involved': 'int64', 'property_damage': 'object', 'bodily_injuries': 'int64', 'witnesses': 'int64', 'police_report_available': 'object', 'total_claim_amount': 'int64', 'injury_claim': 'int64', 'property_claim': 'int64', 'vehicle_claim': 'int64', 'auto_make': 'object', 'auto_model': 'object', 'auto_year': 'int64', 'fraud_reported': 'object'}, 'TARGET_COLUMN': {'fraud_reported': 'object'}}]
+[2025-01-22 04:28:10,669: INFO: configuration: Artifacts Root: artifacts]
+[2025-01-22 04:28:10,671: INFO: common: Directory created: artifacts]
+[2025-01-22 04:28:10,672: INFO: common: Directory created: artifacts/model_evaluation]
+[2025-01-22 04:28:10,673: INFO: model_evaluation: Loading test data and trained model.]
+[2025-01-22 04:28:10,715: INFO: model_evaluation: Model loaded successfully: GradientBoostingClassifier(max_depth=5, subsample=0.8)]
+[2025-01-22 04:28:10,716: INFO: model_evaluation: Preparing test data for evaluation.]
+[2025-01-22 04:28:10,721: INFO: model_evaluation: Test data scaled successfully]
+[2025-01-22 04:28:10,722: INFO: model_evaluation: Starting MLflow run.]
+[2025-01-22 04:28:12,207: INFO: model_evaluation: Making predictions and evaluating metrics.]
+[2025-01-22 04:28:12,268: INFO: model_evaluation: Metrics: {'f1_score': 0.8957528957528957, 'roc_auc_score': 0.8940675251457492, 'accuracy_score': 0.892, 'precision_score': 0.8405797101449275, 'recall_score': 0.9586776859504132, 'confusion_matrix': [[107, 22], [5, 116]], 'classification_report': {'0': {'precision': 0.9553571428571429, 'recall': 0.8294573643410853, 'f1-score': 0.8879668049792531, 'support': 129.0}, '1': {'precision': 0.8405797101449275, 'recall': 0.9586776859504132, 'f1-score': 0.8957528957528957, 'support': 121.0}, 'accuracy': 0.892, 'macro avg': {'precision': 0.8979684265010353, 'recall': 0.8940675251457493, 'f1-score': 0.8918598503660744, 'support': 250.0}, 'weighted avg': {'precision': 0.8998048654244305, 'recall': 0.892, 'f1-score': 0.8917352729136961, 'support': 250.0}}}]
+[2025-01-22 04:28:12,271: INFO: common: json file saved at: artifacts\model_evaluation\metrics.json]
+[2025-01-22 04:28:12,272: INFO: model_evaluation: Metrics saved to artifacts/model_evaluation/metrics.json]
+[2025-01-22 04:28:12,273: INFO: model_evaluation: Logging metrics to MLflow.]
+[2025-01-22 04:28:14,808: INFO: model_evaluation: Metrics logged to MLflow.]
+[2025-01-22 04:28:14,809: INFO: model_evaluation: Logging parameters to MLflow.]
+[2025-01-22 04:28:15,220: INFO: model_evaluation: Parameters logged to MLflow.]
+[2025-01-22 04:28:15,221: INFO: model_evaluation: Logging model with signature.]
+[2025-01-22 04:28:32,343: INFO: model_evaluation: Model logged with signature.]
+[2025-01-22 04:28:32,343: INFO: model_evaluation: Logging classification report and confusion matrix.]
+[2025-01-22 04:28:32,370: INFO: model_evaluation: Classification report:               precision    recall  f1-score   support
+
+           0       0.96      0.83      0.89       129
+           1       0.84      0.96      0.90       121
+
+    accuracy                           0.89       250
+   macro avg       0.90      0.89      0.89       250
+weighted avg       0.90      0.89      0.89       250
+]
+[2025-01-22 04:28:32,372: INFO: model_evaluation: Confusion matrix: [[107  22]
+ [  5 116]]]
+[2025-01-22 04:28:32,373: INFO: model_evaluation: Saving classification report and confusion matrix as text files.]
+[2025-01-22 04:28:33,121: INFO: model_evaluation: Error during model evaluation: 'ModelEvaluationConfig' object has no attribute 'artifact_dir']
+[2025-01-22 04:28:33,122: INFO: stage_05_model_evaluation: Error during model evaluation: 'ModelEvaluationConfig' object has no attribute 'artifact_dir']
+[2025-01-22 04:28:33,123: INFO: main: Error in stage Model Evaluation Stage: 'ModelEvaluationConfig' object has no attribute 'artifact_dir']

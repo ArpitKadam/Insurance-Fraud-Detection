@@ -24,3 +24,13 @@ model_trainer:
   max_depth: 5
   n_estimators: 100
   subsample: 0.8
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  artifact_dir: artifacts/model_evaluation
+  test_data_path: artifacts/data_transformation/test.csv
+  model_path: artifacts/model_trainer/GradientBoostingClassifier.joblib
+  metric_file_name: artifacts/model_evaluation/metrics.json
+  mlflow_uri: https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow
+  target_column: fraud_reported
+  mlflow_experiment_name: Insurance-Fraud-Detection

@@ -1,7 +1,7 @@
 from src.Insurance_Fraud.constants import *
 from src.Insurance_Fraud.utils.common import read_yaml, create_directories
 from pathlib import Path
-from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
+from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig
 from src.Insurance_Fraud.logger.logger import logger
 
 class ConfigurationManager:
@@ -125,3 +125,25 @@ class ConfigurationManager:
         logger.info(f"Model Trainer Config Target Column: {model_trainer_config.target_column}")
 
         return model_trainer_config
+    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config["model_evaluation"]
+        params = self.params["GradientBoostingClassifier"]
+
+        schema_target = self.schema["TARGET_COLUMN"]
+        target_column = list(schema_target.keys())[0]
+        create_directories([config["root_dir"]])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config["root_dir"],
+            test_data_path=config["test_data_path"],
+            model_path=config["model_path"],
+            all_params=params,
+            metric_file_name=config["metric_file_name"],
+            target_column=target_column,
+            artifact_dir=config["artifact_dir"],
+            mlflow_uri="https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow",
+            mlflow_experiment_name="insurance_fraud_experiment",
+            mlflow_run_name="run_3"  # Replace with your desired MLflow run name
+        )
+        return model_evaluation_config  
