@@ -1,9 +1,8 @@
 from src.Insurance_Fraud.constants import *
 from src.Insurance_Fraud.utils.common import read_yaml, create_directories
 from pathlib import Path
-from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig
+from src.Insurance_Fraud.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
 from src.Insurance_Fraud.logger.logger import logger
-from src.Insurance_Fraud.entity.config_entity import DataValidationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -59,4 +58,26 @@ class ConfigurationManager:
             all_schema=schema
         )
 
+        logger.info(f"Data Validation Config: {data_validation_config}")
+        logger.info(f"Data Validation Config Root Dir: {data_validation_config.root_dir}")
+        logger.info(f"Data Validation Config Unzip Data Dir: {data_validation_config.unzip_data_dir}")
+        logger.info(f"Data Validation Config Status File: {data_validation_config.STATUS_FILE}")
+        logger.info(f"Data Validation Config All Schema: {data_validation_config.all_schema}")
+
         return data_validation_config
+    
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        config = self.config['data_transformation']
+        create_directories([config['root_dir']])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config['root_dir'],
+            data_path=config['data_path']
+        )
+
+        logger.info(f"Data Transformation Config: {data_transformation_config}")
+        logger.info(f"Data Transformation Config Root Dir: {data_transformation_config.root_dir}")
+        logger.info(f"Data Transformation Config Data Path: {data_transformation_config.data_path}")
+
+        return data_transformation_config

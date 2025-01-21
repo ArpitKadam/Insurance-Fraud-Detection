@@ -12,6 +12,7 @@ class DataIngestion:
         self.config = config
 
     def download_file(self):
+        logger.info(f"Downloading data from {self.config.source_url}")
         if not os.path.exists(self.config.local_data_file):
             logger.info(f"Downloading data from {self.config.source_url}")
             filename, headers = request.urlretrieve(
@@ -21,6 +22,7 @@ class DataIngestion:
             logger.info(f"Downloaded data from {self.config.source_url} to {self.config.local_data_file}")
             
     def extract_zip_file(self):
+        logger.info(f"Extracting data from {self.config.local_data_file}")
         unzip_path = self.config.unzip_dir
         os.makedirs(unzip_path, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
