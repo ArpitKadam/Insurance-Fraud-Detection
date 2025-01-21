@@ -1,0 +1,242 @@
+Insurance Fraud Detection Model Training Log
+==================================================
+
+Training started at: 2025-01-21 08:32:56
+Number of models to train: 13
+
+Training LogisticRegression...
+Results for LogisticRegression:
+Best parameters: {'C': 0.01, 'penalty': 'l2', 'solver': 'lbfgs'}
+Cross-validation accuracy: 0.7762
+Test accuracy: 0.7450
+Training time: 0.81s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.76      0.72      0.74       100
+           1       0.73      0.77      0.75       100
+
+    accuracy                           0.74       200
+   macro avg       0.75      0.74      0.74       200
+weighted avg       0.75      0.74      0.74       200
+
+Confusion Matrix:
+[[72 28]
+ [23 77]]
+--------------------------------------------------------------------------------
+Training RandomForestClassifier...
+Results for RandomForestClassifier:
+Best parameters: {'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+Cross-validation accuracy: 0.8912
+Test accuracy: 0.8650
+Training time: 77.31s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.82      0.86       100
+           1       0.83      0.91      0.87       100
+
+    accuracy                           0.86       200
+   macro avg       0.87      0.86      0.86       200
+weighted avg       0.87      0.86      0.86       200
+
+Confusion Matrix:
+[[82 18]
+ [ 9 91]]
+--------------------------------------------------------------------------------
+Training GradientBoostingClassifier...
+Results for GradientBoostingClassifier:
+Best parameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}
+Cross-validation accuracy: 0.9000
+Test accuracy: 0.8850
+Training time: 198.62s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.80      0.87       100
+           1       0.83      0.97      0.89       100
+
+    accuracy                           0.89       200
+   macro avg       0.90      0.89      0.88       200
+weighted avg       0.90      0.89      0.88       200
+
+Confusion Matrix:
+[[80 20]
+ [ 3 97]]
+--------------------------------------------------------------------------------
+Training SVC...
+Results for SVC:
+Best parameters: {'C': 10, 'degree': 2, 'gamma': 'scale', 'kernel': 'rbf'}
+Cross-validation accuracy: 0.8575
+Test accuracy: 0.8850
+Training time: 35.26s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.91      0.86      0.88       100
+           1       0.87      0.91      0.89       100
+
+    accuracy                           0.89       200
+   macro avg       0.89      0.89      0.88       200
+weighted avg       0.89      0.89      0.88       200
+
+Confusion Matrix:
+[[86 14]
+ [ 9 91]]
+--------------------------------------------------------------------------------
+Training KNeighborsClassifier...
+Results for KNeighborsClassifier:
+Best parameters: {'algorithm': 'auto', 'n_neighbors': 10, 'p': 1, 'weights': 'distance'}
+Cross-validation accuracy: 0.7613
+Test accuracy: 0.7650
+Training time: 8.80s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      0.56      0.70       100
+           1       0.69      0.97      0.80       100
+
+    accuracy                           0.77       200
+   macro avg       0.82      0.77      0.75       200
+weighted avg       0.82      0.77      0.75       200
+
+Confusion Matrix:
+[[56 44]
+ [ 3 97]]
+--------------------------------------------------------------------------------
+Training DecisionTreeClassifier...
+Results for DecisionTreeClassifier:
+Best parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+Cross-validation accuracy: 0.8650
+Test accuracy: 0.8350
+Training time: 11.48s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.78      0.83       100
+           1       0.80      0.89      0.84       100
+
+    accuracy                           0.83       200
+   macro avg       0.84      0.83      0.83       200
+weighted avg       0.84      0.83      0.83       200
+
+Confusion Matrix:
+[[78 22]
+ [11 89]]
+--------------------------------------------------------------------------------
+Training AdaBoostClassifier...
+Results for AdaBoostClassifier:
+Best parameters: {'learning_rate': 1.0, 'n_estimators': 50}
+Cross-validation accuracy: 0.8575
+Test accuracy: 0.8250
+Training time: 47.41s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.78      0.82       100
+           1       0.80      0.87      0.83       100
+
+    accuracy                           0.82       200
+   macro avg       0.83      0.82      0.82       200
+weighted avg       0.83      0.82      0.82       200
+
+Confusion Matrix:
+[[78 22]
+ [13 87]]
+--------------------------------------------------------------------------------
+Training PCA...
+Error training PCA: This 'GridSearchCV' has no attribute 'predict'
+--------------------------------------------------------------------------------
+Training BaggingClassifier...
+Results for BaggingClassifier:
+Best parameters: {'bootstrap': False, 'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 50}
+Cross-validation accuracy: 0.9025
+Test accuracy: 0.8750
+Training time: 567.55s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.91      0.83      0.87       100
+           1       0.84      0.92      0.88       100
+
+    accuracy                           0.88       200
+   macro avg       0.88      0.88      0.87       200
+weighted avg       0.88      0.88      0.87       200
+
+Confusion Matrix:
+[[83 17]
+ [ 8 92]]
+--------------------------------------------------------------------------------
+Training ExtraTreesClassifier...
+Results for ExtraTreesClassifier:
+Best parameters: {'bootstrap': True, 'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+Cross-validation accuracy: 0.8875
+Test accuracy: 0.8750
+Training time: 441.64s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.92      0.82      0.87       100
+           1       0.84      0.93      0.88       100
+
+    accuracy                           0.88       200
+   macro avg       0.88      0.88      0.87       200
+weighted avg       0.88      0.88      0.87       200
+
+Confusion Matrix:
+[[82 18]
+ [ 7 93]]
+--------------------------------------------------------------------------------
+Training MLPClassifier...
+Results for MLPClassifier:
+Best parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (100,), 'learning_rate': 'adaptive', 'solver': 'adam'}
+Cross-validation accuracy: 0.8800
+Test accuracy: 0.8400
+Training time: 1592.48s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.77      0.83       100
+           1       0.80      0.91      0.85       100
+
+    accuracy                           0.84       200
+   macro avg       0.85      0.84      0.84       200
+weighted avg       0.85      0.84      0.84       200
+
+Confusion Matrix:
+[[77 23]
+ [ 9 91]]
+--------------------------------------------------------------------------------
+Training RidgeClassifier...
+Results for RidgeClassifier:
+Best parameters: {'alpha': 0.1, 'solver': 'auto'}
+Cross-validation accuracy: 0.7812
+Test accuracy: 0.7350
+Training time: 1.03s
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.72      0.76      0.74       100
+           1       0.75      0.71      0.73       100
+
+    accuracy                           0.73       200
+   macro avg       0.74      0.73      0.73       200
+weighted avg       0.74      0.73      0.73       200
+
+Confusion Matrix:
+[[76 24]
+ [29 71]]
+--------------------------------------------------------------------------------
+
+Total training time: 2986.64s

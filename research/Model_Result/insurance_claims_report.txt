@@ -1,0 +1,95 @@
+
+Winning Model:
+GradientBoostingClassifier {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}, 'Cross-val Score':0.90000, 'Test Accuracy':0.885, 'Training Time':198.62s
+
+===============================
+      The $52,761 Question: 
+  A Story of Insurance Claims
+===============================
+
+In the world of insurance claims, where the average claim amounts to $52,761.94, approximately one in four claims (24.7%) raises a red flag for fraud. This isn't just about numbers; it's about patterns of human behavior that tell the story.
+
+Our story begins with the timing of these incidents. Just as in a great mystery, when things happen matters. Multi-vehicle collisions are the most common incident type, but as we dig deeper, we discover there is more to the tale when we analyze the individuals involved.
+
+---------------------------------
+          The Cast of Characters
+---------------------------------
+
+- Executive-managerial professionals show the highest fraud rates.
+- The typical fraudster is, on average, 39 years old.
+- JD degree holders make an unexpected appearance as a prominent group in fraudulent claims.
+- Geographically, three states stand out as hotspots for insurance fraud: Indiana, Illinois, and Ohio.
+
+------------------------------------
+           The Vehicle Connection
+------------------------------------
+
+The vehicles involved in fraudulent claims also tell their own story. The average vehicle in the dataset is about 20 years old. However, when we look at the data, we find that vehicle age doesn’t strongly correlate with the size of the claim. There is almost no correlation (0.009) between the policy premiums and the claim amounts, suggesting that higher premiums don’t necessarily predict larger claims.
+
+--------------------------------------
+           The Money Trail
+--------------------------------------
+
+There’s more to this story than just the cars and the characters involved; the money itself holds secrets. Education levels create an interesting hierarchy in claim amounts. Meanwhile, relationship status reveals unexpected patterns in fraud rates. Capital gains and losses also play a role, adding another layer to our understanding of who is more likely to file fraudulent claims.
+
+----------------------------------------
+           Conclusion: The $52,761 
+           Question Unveiled
+----------------------------------------
+
+In the end, it’s not just about the numbers; it's about how human behavior, patterns, and timing come together to tell the full story of insurance fraud. This is the $52,761 question—understanding the intricacies behind each claim and what drives fraud in the world of insurance.
+
+---------------------------------
+      Demographics and Fraud Insights
+---------------------------------
+
+- Middle-aged customers (35-50) show higher fraud rates.
+- Males are slightly more likely to commit fraud.
+- Higher education levels (Masters, PhD) have lower fraud rates.
+- Certain occupations (armed forces, transport) show elevated fraud rates.
+
+- Annual premiums are similar between fraud/non-fraud (around $1,250).
+- Higher deductibles correlate with increased fraud likelihood.
+- Umbrella limits show distinct patterns with fraud cases clustering at certain levels.
+
+-----------------------------------
+       Fraud and Loss Patterns
+-----------------------------------
+
+- Fraudulent claims have consistently higher amounts across all categories.
+- Major severity incidents show disproportionate fraud rates.
+- About 25% of total claims are fraudulent.
+- Major severity incidents have nearly 40% fraud rate.
+- Minor incidents show lowest fraud rates (~15%).
+
+-----------------------------------
+           Occupation and Fraud Rates
+-----------------------------------
+
+- Armed forces and transport workers show highest fraud rates (>35%).
+- Medical and legal professionals show lowest fraud rates (<20%).
+- Higher education levels correlate with lower fraud rates.
+- High school and college graduates show higher fraud propensity.
+
+-----------------------------------
+          Loss Ratios and Deductibles
+-----------------------------------
+
+- Loss ratios are higher for fraudulent claims (3.97 vs 3.67).
+- Major damage claims have 60.51% fraud rate but similar premiums.
+- Premium pricing doesn't effectively account for severity risk.
+- Total loss claims are potentially underpriced given claim amounts.
+
+-----------------------------------
+       Deductible Insights
+-----------------------------------
+
+- This shows that higher deductibles slightly reduce fraud rates but increase loss ratios.
+- $1000 deductible shows best balance (lowest fraud rate at 22.5%).
+- All deductible levels currently showing negative profitability.
+- Higher deductibles don't effectively deter fraud.
+
+===============================================
+            END OF INSURANCE FRAUD REPORT
+===============================================
+

@@ -1,0 +1,12 @@
+Model,Best Parameters,Cross-val Score,Test Accuracy,Training Time
+LogisticRegression,"{'C': 0.01, 'penalty': 'l2', 'solver': 'lbfgs'}",0.7762499999999999,0.745,0.81s
+RandomForestClassifier,"{'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}",0.89125,0.865,77.31s
+GradientBoostingClassifier,"{'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100, 'subsample': 0.8}",0.9,0.885,198.62s
+SVC,"{'C': 10, 'degree': 2, 'gamma': 'scale', 'kernel': 'rbf'}",0.8574999999999999,0.885,35.26s
+KNeighborsClassifier,"{'algorithm': 'auto', 'n_neighbors': 10, 'p': 1, 'weights': 'distance'}",0.7612500000000001,0.765,8.80s
+DecisionTreeClassifier,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}",0.8649999999999999,0.835,11.48s
+AdaBoostClassifier,"{'learning_rate': 1.0, 'n_estimators': 50}",0.8574999999999999,0.825,47.41s
+BaggingClassifier,"{'bootstrap': False, 'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 50}",0.9025000000000001,0.875,567.55s
+ExtraTreesClassifier,"{'bootstrap': True, 'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}",0.8875,0.875,441.64s
+MLPClassifier,"{'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (100,), 'learning_rate': 'adaptive', 'solver': 'adam'}",0.8800000000000001,0.84,1592.48s
+RidgeClassifier,"{'alpha': 0.1, 'solver': 'auto'}",0.78125,0.735,1.03s
