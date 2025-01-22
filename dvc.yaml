@@ -14,3 +14,30 @@ stages:
       - artifacts/data_ingestion/insurance_claims.csv
     outs:
       - artifacts/data_validation/STATUS.txt
+
+  data_transformation:
+    cmd: python src/Insurance_Fraud/components/data_transformation.py
+    deps:
+      - src/Insurance_Fraud/components/data_transformation.py
+      - artifacts/data_validation/STATUS.txt
+    outs:
+      - artifacts/data_transformation/train.csv
+      - artifacts/data_transformation/test.csv
+
+  model_training:
+    cmd: python src/Insurance_Fraud/components/model_trainer.py
+    deps:
+      - src/Insurance_Fraud/components/model_trainer.py
+      - artifacts/data_transformation/train.csv
+    outs:
+      - artifacts/model_trainer/GradientBoostingClassifier.joblib
+
+  model_evaluation:
+    cmd: python src/Insurance_Fraud/components/model_evaluation.py
+    deps:
+      - src/Insurance_Fraud/components/model_evaluation.py
+      - artifacts/data_transformation/test.csv
+      - artifacts/model_trainer/GradientBoostingClassifier.joblib
+    outs:
+      - artifacts/model_evaluation/classification_report.txt
+      - artifacts/model_evaluation/metrics.json
