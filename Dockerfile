@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
-    apt-get install -y awscli
+    pip install awscli --no-cache-dir
 
 # Step 4: Add the `src` directory to PYTHONPATH
 ENV PYTHONPATH=/app/src
