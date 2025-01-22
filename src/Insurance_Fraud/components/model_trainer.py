@@ -26,13 +26,16 @@ class ModelTrainer:
         test_y = test_data[self.config.target_column]
         logger.info(f"Test X: {test_x.head()}")
         logger.info(f"Test Y: {test_y.head()}")
+        logger.info(f"Train X columns: {train_x.columns}")
+        logger.info(f"Test X columns: {test_x.columns}")
 
         logger.info("Initializing Standard Scaler")
         scaler = StandardScaler()
         logger.info("Fitting Standard Scaler on train data")
         train_x_scaled = scaler.fit_transform(train_x)
-        logger.info("Transforming test data using Standard Scaler")
+        logger.info("Transforming train data using Standard Scaler")
         test_x_scaled = scaler.transform(test_x)
+        logger.info("Transforming test data using Standard Scaler")
 
         logger.info("Scaling train and test data")
         logger.info(f"Train X Scaled: {train_x_scaled[:5]}")

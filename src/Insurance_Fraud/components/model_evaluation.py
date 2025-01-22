@@ -58,7 +58,9 @@ class ModelEvaluation:
             # Preprocess test data
             logger.info("Preparing test data for evaluation.")
             test_x = test_data.drop([self.config.target_column], axis=1)
+            logger.info(f"Test data shape: {test_x.columns}")
             test_y = test_data[self.config.target_column]
+            logger.info(f"Test data shape: {test_y.shape}")
             scaler = StandardScaler()
             test_x_scaled = scaler.fit_transform(test_x)  # Use fit_transform to ensure compatibility
             logger.info("Test data scaled successfully")

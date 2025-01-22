@@ -16,14 +16,20 @@ class DataTransformation:
         df = pd.read_csv(self.config.data_path)
         logger.info(f"Data read successfully from {self.config.data_path}")
 
+        df.drop("policy_number", axis=1, inplace=True)
+        df.drop("insured_hobbies", axis=1, inplace=True)
+        df.drop("insured_zip", axis=1, inplace=True)
+        df.drop("incident_location", axis=1, inplace= True)
+        logger.info("Removed Meaningless columns")
+        
+        df.replace('?', np.nan, inplace=True)
+        logger.info("Replaced '?' with NaN in categorical columns")
+
         numerical_columns = df.select_dtypes(include=['float64', 'int64']).columns
         logger.info(f"Numerical columns: {numerical_columns}")
 
         categorical_columns = df.select_dtypes(include=['object']).columns
         logger.info(f"Categorical columns: {categorical_columns}")
-
-        df.replace('?', np.nan, inplace=True)
-        logger.info(f"Replacing '?' with NaN in categorical columns")
 
         for col in categorical_columns:
             df[col].fillna(df[col].mode()[0], inplace=True)
@@ -43,14 +49,14 @@ class DataTransformation:
         logger.info(f"Calculating vehicle age")
 
         df.drop('auto_year', axis=1, inplace=True)
-        logger.info(f"Dropping auto_year column")
+        logger.info("Dropped auto_year column")
 
         df['incident_date'] = pd.to_datetime(df['incident_date'])
         df['incident_year'] = df['incident_date'].dt.year
         df['incident_month'] = df['incident_date'].dt.month
         df['incident_day'] = df['incident_date'].dt.day
         df.drop('incident_date',axis=1,inplace=True)
-        logger.info(f"Dropping incident_date column")
+        logger.info("Dropped incident_date column")
 
         df['policy_bind_date'] = pd.to_datetime(df['policy_bind_date'], errors='coerce')
         df['policy_bind_year'] = df['policy_bind_date'].dt.year
@@ -121,9 +127,11 @@ class DataTransformation:
 
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"), index=False)
         logger.info(f"Successfully saved train data to {os.path.join(self.config.root_dir, 'train.csv')}")
+        logger.info(f"Train data shape: {train.columns}")
 
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"), index=False)
         logger.info(f"Successfully saved test data to {os.path.join(self.config.root_dir, 'test.csv')}")
+        logger.info(f"Test data shape: {test.columns}")
 
         logger.info(f"Data transformation completed successfully and saved to {self.config.root_dir}")
         logger.info(f"Train data shape: {train.shape}")
