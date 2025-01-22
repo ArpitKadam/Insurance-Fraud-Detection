@@ -2,4 +2,3 @@ venv/
 .github/
 __pycache__/
 research/logs/
-templates/index.html
