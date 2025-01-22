@@ -1,0 +1,8 @@
+[core]
+    remote = dagshub
+['remote "dagshub"']
+    url = https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.dvc
+    auth = basic
+    user = ArpitKadam
+    ask_password = true
+    password = 0b5a68e6c27fb4912695b01c6c78a36f67f45ca6
