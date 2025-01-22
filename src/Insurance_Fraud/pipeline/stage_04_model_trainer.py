@@ -32,16 +32,13 @@ class ModelTrainerPipeline:
             logger.error(f"Error in model training: {e}")
             raise e
 
-
 if __name__ == "__main__":
     try:
         # Log the start of the stage
-        logger.info(f"******************* {STAGE_NAME} *******************")
-        
+        logger.info(f"******************* {STAGE_NAME} *******************")   
         # Run the pipeline
         pipeline = ModelTrainerPipeline()
-        pipeline.main()
-        
+        pipeline.main()       
         # Log the completion of the stage
         logger.info(f"******************* {STAGE_NAME} completed *******************")
     except Exception as e:

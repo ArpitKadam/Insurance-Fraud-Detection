@@ -19,13 +19,20 @@ from src.Insurance_Fraud.entity.config_entity import ModelEvaluationConfig
 from src.Insurance_Fraud.utils.common import save_json
 import dagshub
 
-dagshub.init(repo_owner='ArpitKadam', repo_name='Insurance-Fraud-Detection', mlflow=True)
+dagshub.init(
+    repo_owner='ArpitKadam',
+    repo_name='Insurance-Fraud-Detection', 
+    mlflow=True
+)
 
 # Set environment variables for MLflow tracking
-os.environ['MLFLOW_TRACKING_URI'] = 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow'
+os.environ['MLFLOW_TRACKING_URI'] = (
+    'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow'
+)
 os.environ['MLFLOW_TRACKING_USERNAME'] = 'ArpitKadam'
-os.environ['MLFLOW_TRACKING_PASSWORD'] = '5989d6b56c4eec6ea090d927851d1fb5297a42a8'
-
+os.environ['MLFLOW_TRACKING_PASSWORD'] = (
+    '5989d6b56c4eec6ea090d927851d1fb5297a42a8'
+)
 
 class ModelEvaluation:
     def __init__(self, config: ModelEvaluationConfig):
@@ -43,8 +50,8 @@ class ModelEvaluation:
             "accuracy_score": accuracy_score(actual, pred),
             "precision_score": precision_score(actual, pred),
             "recall_score": recall_score(actual, pred),
-            "confusion_matrix": confusion_matrix(actual, pred).tolist(),  # Convert to list for JSON serialization
-            "classification_report": classification_report(actual, pred, output_dict=True),  # Dict for better logging
+            "confusion_matrix": confusion_matrix(actual, pred).tolist(),
+            "classification_report": classification_report(actual, pred, output_dict=True),
         }
         return metrics
 
@@ -57,18 +64,17 @@ class ModelEvaluation:
             logger.info("Loading test data and trained model.")
             test_data = pd.read_csv(self.config.test_data_path)
             model = joblib.load(self.config.model_path)
-            logger.info(f"Model loaded successfully: {model}")
-
+            logger.info("Model loaded successfully")
             # Preprocess test data
             logger.info("Preparing test data for evaluation.")
             test_x = test_data.drop([self.config.target_column], axis=1)
             test_y = test_data[self.config.target_column]
-            logger.info(f"Test data shape: {test_x.shape}, Target data shape: {test_y.shape}")
-
+            logger.info(f"Test data shape: {test_x.shape}")
+            logger.info(f"Target data shape: {test_y.shape}")
+            logger.info("Preparing test data for evaluation.")
             scaler = StandardScaler()
-            test_x_scaled = scaler.fit_transform(test_x)  # Use fit_transform to ensure compatibility
+            test_x_scaled = scaler.fit_transform(test_x)
             logger.info("Test data scaled successfully")
-
             # Set up MLflow tracking
             mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
             logger.info("Starting MLflow run.")
@@ -76,12 +82,17 @@ class ModelEvaluation:
                 # Predict and evaluate metrics
                 logger.info("Making predictions and evaluating metrics.")
                 predicted_qualities = model.predict(test_x_scaled)
-                metrics = self.eval_metrics(test_y, predicted_qualities)
+                metrics = self.eval_metrics(
+                    test_y,
+                    predicted_qualities
+                )
+                logger.info("Metrics evaluated successfully")
                 logger.info(f"Metrics: {metrics}")
-                save_json(path=Path(self.config.metric_file_name), data=metrics)
+                save_json(
+                    path=Path(self.config.metric_file_name),
+                    data=metrics
+                )
                 logger.info(f"Metrics saved to {self.config.metric_file_name}")
-
-                # Log metrics to MLflow
                 logger.info("Logging metrics to MLflow.")
                 for metric_name, metric_value in metrics.items():
                     if isinstance(metric_value, (list, dict)):  # Skip complex objects for metrics
@@ -89,7 +100,6 @@ class ModelEvaluation:
                     mlflow.log_metric(metric_name, metric_value)
                 logger.info("Metrics logged to MLflow.")
 
-                # Log all model parameters
                 logger.info("Logging parameters to MLflow.")
                 mlflow.log_params(self.config.all_params)
                 logger.info("Parameters logged to MLflow.")
@@ -104,31 +114,33 @@ class ModelEvaluation:
                     signature=signature,
                 )
                 logger.info("Model logged with signature.")
-
                 # Convert classification report and confusion matrix to strings
                 logger.info("Logging classification report and confusion matrix.")
                 clf_report = classification_report(test_y, predicted_qualities)
                 conf_matrix = confusion_matrix(test_y, predicted_qualities)
                 logger.info(f"Classification report: {clf_report}")
                 logger.info(f"Confusion matrix: {conf_matrix}")
-
                 # Save them as text files and log as artifacts in MLflow
-                logger.info("Saving classification report and confusion matrix as text files.")
-                report_path = Path(self.config.artifact_dir) / "classification_report.txt"
-                matrix_path = Path(self.config.artifact_dir) / "confusion_matrix.txt"
+                report_path=Path(self.config.artifact_dir)/"classification_report.txt"
+                matrix_path=Path(self.config.artifact_dir)/"confusion_matrix.txt"
                 logger.info(f"Classification report path: {report_path}")
                 logger.info(f"Confusion matrix path: {matrix_path}")
-
+                # Write classification report and confusion matrix to text files
+                logger.info("Writing classification report to text file.")
+                logger.info("Writing confusion matrix to text file.")
                 with open(report_path, "w") as f:
                     f.write(clf_report)
                 with open(matrix_path, "w") as f:
                     f.write(str(conf_matrix))
-                logger.info("Classification report and confusion matrix saved as text files.")
-
+                logger.info("Classification report saved as text files.")
+                logger.info("Confusion matrix saved as text files.")
+                # Log artifacts in MLflow
+                logger.info("Logging classification report as artifacts in MLflow.")
                 mlflow.log_artifact(str(report_path))
+                logger.info("Logging confusion matrix as artifacts in MLflow.")
                 mlflow.log_artifact(str(matrix_path))
-                logger.info("Classification report and confusion matrix logged as artifacts in MLflow.")
-
+                logger.info("Classification report logged as artifacts in MLflow.")
+                logger.info("Confusion matrix logged as artifacts in MLflow.")
                 logger.info("Model and metrics logged successfully.")
 
         except Exception as e:

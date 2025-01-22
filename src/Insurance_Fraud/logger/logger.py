@@ -10,7 +10,8 @@ logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 log_dir = "logs"
 
 # Create a unique log file name based on the current timestamp
-log_filepath = os.path.join(log_dir, f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log")
+timestamp = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+log_filepath = os.path.join(log_dir, f"{timestamp}.log")
 
 # Create the log directory if it doesn't exist
 os.makedirs(log_dir, exist_ok=True)

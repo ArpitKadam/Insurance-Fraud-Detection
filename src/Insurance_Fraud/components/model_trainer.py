@@ -6,7 +6,6 @@ from src.Insurance_Fraud.logger.logger import logger
 from src.Insurance_Fraud.entity.config_entity import ModelTrainerConfig
 import os
 
-
 class ModelTrainer:
     def __init__(self, config: ModelTrainerConfig):
         self.config = config
@@ -18,7 +17,7 @@ class ModelTrainer:
         logger.info("Loading train and test data")
         train_data = pd.read_csv(self.config.train_data_path)
         test_data = pd.read_csv(self.config.test_data_path)
-        
+        # Log train and test data
         logger.info(f"Train Data: {train_data.head()}")
         logger.info(f"Test Data: {test_data.head()}")
 
@@ -28,10 +27,11 @@ class ModelTrainer:
         
         test_x = test_data.drop([self.config.target_column], axis=1)
         test_y = test_data[self.config.target_column]
-        
+        # Log train and test data
         logger.info(f"Train X columns: {train_x.columns}")
         logger.info(f"Test X columns: {test_x.columns}")
-
+        logger.info(f"Test Y assigned but not used directly: {test_y.shape}")
+        # Log model parameters
         logger.info("Initializing Standard Scaler")
         scaler = StandardScaler()
         logger.info("Fitting Standard Scaler on train data")
@@ -39,29 +39,24 @@ class ModelTrainer:
         logger.info("Transforming train data using Standard Scaler")
         test_x_scaled = scaler.transform(test_x)
         logger.info("Transforming test data using Standard Scaler")
-
+        # Log scaled data
         logger.info("Scaling train and test data")
         logger.info(f"Train X Scaled: {train_x_scaled[:5]}")
         logger.info(f"Test X Scaled: {test_x_scaled[:5]}")
-
+        # Log model parameters
         logger.info("Initializing Gradient Boosting Classifier")
         model = GradientBoostingClassifier(
             learning_rate=self.config.learning_rate,
             max_depth=self.config.max_depth,
             n_estimators=self.config.n_estimators,
             subsample=self.config.subsample
-        )
-        
-        logger.info(f"Model: {model}")
-
+        )    
         logger.info("Fitting model on train data")
         model.fit(train_x_scaled, train_y)
-
+        # Log model
         logger.info("Dumping model to disk")
         model_path = os.path.join(self.config.root_dir, self.config.model_name)
         joblib.dump(model, model_path)
-
+        # Log model
         logger.info(f"Model trained and saved to {model_path}")
-        logger.info(f"Model: {model}")
-        
         return model

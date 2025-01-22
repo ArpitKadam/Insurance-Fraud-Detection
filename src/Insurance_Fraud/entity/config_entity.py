@@ -1,12 +1,14 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+
 @dataclass(frozen=True)
 class DataIngestionConfig:
     root_dir: Path
     source_url: str
     local_data_file: Path
     unzip_dir: Path
+
 
 @dataclass(frozen=True)
 class DataValidationConfig:
@@ -15,10 +17,12 @@ class DataValidationConfig:
     STATUS_FILE: Path
     all_schema: dict
 
+
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path
+
 
 @dataclass
 class ModelTrainerConfig:
@@ -32,6 +36,7 @@ class ModelTrainerConfig:
     subsample: float
     target_column: str
 
+
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
     root_dir: Path
@@ -44,3 +49,4 @@ class ModelEvaluationConfig:
     mlflow_experiment_name: str
     mlflow_run_name: str
     artifact_dir: Path
+    mlflow_model_name: str

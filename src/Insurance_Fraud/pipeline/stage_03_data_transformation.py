@@ -5,6 +5,7 @@ from pathlib import Path
 
 STAGE_NAME = "Data Transformation Stage"
 
+
 class DataTransformationTrainingPipeline:
     def __init__(self):
         pass
@@ -16,7 +17,10 @@ class DataTransformationTrainingPipeline:
             if status_file_path.exists():
                 with open(status_file_path, "r") as f:
                     content = f.read()
-                    status = content.split("****************************************************")[0].split(" ")[1].strip()
+                    status = content.split(
+                        "****************************************************"
+                    )[0].split(" ")[1].strip()
+                    logger.info(status)
                     print(status)
 
                 if status == "True":
@@ -29,36 +33,37 @@ class DataTransformationTrainingPipeline:
                         )
 
                         # Get data transformation config and start transformation
-                        data_transformation_config = config.get_data_transformation_config()
-                        data_transformation = DataTransformation(config=data_transformation_config)
+                        data_trans_config = config.get_data_transformation_config()
+                        data_transformation = DataTransformation(
+                            config=data_trans_config
+                        )
                         data_transformation.initiate_data_transformation()
                     
                     except FileNotFoundError as e:
-                        logger.error(f"Error: Input data file not found. Please check the file path: {e}")
+                        logger.error(f"Error: Please check the file path: {e}")
                         raise e
                     
                     except Exception as e:
-                        logger.error(f"An unexpected error occurred during data transformation: {e}")
+                        logger.error(f"An unexpected error occurred : {e}")
                         raise e
                 else:
                     raise Exception("Your Data is not Validated")
             else:
-                raise FileNotFoundError(f"Validation status file not found at {status_file_path}")
-        
+                raise FileNotFoundError(
+                    "Validation status file not found",
+                    f"Please check the file path: {status_file_path}"
+                )
         except Exception as e:
             logger.exception(f"Error during {STAGE_NAME}: {e}")
             raise e
 
 if __name__ == "__main__":
     try:
-        logger.info(f"************ {STAGE_NAME} started ************")
-        
+        logger.info(f">> Stage {STAGE_NAME} started <<")       
         # Run the Data Transformation pipeline
         obj = DataTransformationTrainingPipeline()
         obj.main()
-        
-        logger.info(f"************ {STAGE_NAME} completed ************")
-    
+        logger.info(f">> Stage {STAGE_NAME} completed <<")
     except Exception as e:
         logger.exception(f"Error during {STAGE_NAME}: {e}")
         raise e

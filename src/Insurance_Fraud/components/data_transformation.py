@@ -36,7 +36,8 @@ class DataTransformation:
         categorical_columns = df.select_dtypes(include=['object']).columns
         logger.info(f"Categorical columns: {categorical_columns}")
 
-        # Fill NaN values for categorical columns with mode and for numerical columns with median
+        # Fill NaN values for categorical columns with mode 
+        #   and for numerical columns with median
         for col in categorical_columns:
             df[col].fillna(df[col].mode()[0], inplace=True)
             logger.info(f"Filling NaN values in {col} with mode of {col}")
@@ -46,10 +47,10 @@ class DataTransformation:
             logger.info(f"Filling NaN values in {col} with median of {col}")
 
         # Feature engineering: Calculate new columns
-        df['loss_ratio'] = df['total_claim_amount'] / (df['policy_annual_premium'] * 12)
+        df['loss_ratio']=df['total_claim_amount']/(df['policy_annual_premium']*12)
         logger.info("Calculating loss ratio")
 
-        df['profitability'] = (df['policy_annual_premium'] * 12) - df['total_claim_amount']
+        df['profitability']=(df['policy_annual_premium']*12)-df['total_claim_amount']
         logger.info("Calculating profitability")
 
         df['vehicle_age'] = 2025 - df['auto_year']
@@ -75,23 +76,28 @@ class DataTransformation:
         logger.info("Dropped policy_bind_date column")
 
         # One-hot encoding categorical variables
-        df = pd.concat([df, pd.get_dummies(df['incident_type'], drop_first=True).astype(int)], axis=1)
+        incident_type_dummies=pd.get_dummies(df['incident_type'],drop_first=True).astype(int)
+        df = pd.concat([df, incident_type_dummies], axis=1)
         df.drop('incident_type', axis=1, inplace=True)
         logger.info("One-hot encoding incident_type column")
 
-        df = pd.concat([df, pd.get_dummies(df['collision_type'], drop_first=True).astype(int)], axis=1)
+        collision_type_dummies=pd.get_dummies(df['collision_type'],drop_first=True).astype(int)
+        df = pd.concat([df, collision_type_dummies], axis=1)
         df.drop('collision_type', axis=1, inplace=True)
         logger.info("One-hot encoding collision_type column")
 
-        df = pd.concat([df, pd.get_dummies(df['authorities_contacted'], drop_first=True).astype(int)], axis=1)
+        authorities_contacted_dummies=pd.get_dummies(df['authorities_contacted'],drop_first=True).astype(int)
+        df = pd.concat([df, authorities_contacted_dummies], axis=1)
         df.drop('authorities_contacted', axis=1, inplace=True)
         logger.info("One-hot encoding authorities_contacted column")
 
-        df = pd.concat([df, pd.get_dummies(df['incident_severity'], drop_first=True).astype(int)], axis=1)
+        incident_severity_dummies=pd.get_dummies(df['incident_severity'],drop_first=True).astype(int)
+        df = pd.concat([df, incident_severity_dummies], axis=1)
         df.drop('incident_severity', axis=1, inplace=True)
         logger.info("One-hot encoding incident_severity column")
 
-        df = pd.concat([df, pd.get_dummies(df['policy_csl'], drop_first=True).astype(int)], axis=1)
+        policy_csl_dummies=pd.get_dummies(df['policy_csl'],drop_first=True).astype(int)
+        df = pd.concat([df, policy_csl_dummies], axis=1)
         df.drop('policy_csl', axis=1, inplace=True)
         logger.info("One-hot encoding policy_csl column")
 
@@ -99,17 +105,21 @@ class DataTransformation:
         df['age'] = pd.to_numeric(df['age'], errors='coerce')
         logger.info("Converting age column to numeric")
 
-        df['age_group'] = pd.cut(df['age'], bins=[0, 25, 35, 45, 55, 100], labels=['18-25', '26-35', '36-45', '46-55', '55+']).astype(object)
-        logger.info("Creating age_group column")
+        # Create age groups and drop the original 'age' column
+        age_bins = [0, 25, 35, 45, 55, 100]
+        age_labels = ['18-25', '26-35', '36-45', '46-55', '55+']
+        df['age_group'] = pd.cut(df['age'], bins=age_bins, labels=age_labels).astype(object)
+        logger.info("Created 'age_group' column")
         df.drop('age', axis=1, inplace=True)
         logger.info("Dropped age column")
 
         # Encoding categorical columns
         encoder_dict = {}
         encoder = LabelEncoder()
-        logger.info(f"Encoding categorical columns: {df.select_dtypes(include=['object']).columns}")
+        categorical_columns = df.select_dtypes(include=['object']).columns
+        logger.info(f"Encoding categorical columns: {categorical_columns}")
 
-        for col in df.select_dtypes(include=['object']).columns:
+        for col in categorical_columns:
             df[col] = encoder.fit_transform(df[col]).astype(int)
             encoder_dict[col] = encoder
         logger.info("Completed encoding categorical columns")
@@ -160,13 +170,16 @@ class DataTransformation:
 
         # Save the train and test datasets
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"), index=False)
-        logger.info(f"Successfully saved train data to {os.path.join(self.config.root_dir, 'train.csv')}")
+        logger.info("Successfully saved train data to path")
+        logger.info(f"{os.path.join(self.config.root_dir, 'train.csv')}")
         logger.info(f"Train data shape: {train.shape}")
 
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"), index=False)
-        logger.info(f"Successfully saved test data to {os.path.join(self.config.root_dir, 'test.csv')}")
+        logger.info("Successfully saved test data to path")
+        logger.info(f"{os.path.join(self.config.root_dir, 'test.csv')}")
         logger.info(f"Test data shape: {test.shape}")
 
-        logger.info("Data transformation completed successfully and saved to {self.config.root_dir}")
+        logger.info("Data transformation completed successfully")
         logger.info(f"Train data shape: {train.shape}")
         logger.info(f"Test data shape: {test.shape}")
+        logger.info(f"Files are saved in {self.config.root_dir}")
