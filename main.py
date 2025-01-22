@@ -6,53 +6,21 @@ from src.Insurance_Fraud.pipeline.stage_05_model_evaluation import ModelEvaluati
 from src.Insurance_Fraud.exception.exception import NetworkSecurityException
 from src.Insurance_Fraud.logger.logger import logger
 import sys
-STAGE_NAME = "Data Ingestion Stage"
-try:
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} started<<<<<<<<<<<<<<<<<<<<<<<<<")
-    obj = DataIngestionTrainingPipeline()
-    obj.main()
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} completed<<<<<<<<<<<<<<<<<<<<<<<")
-except Exception as e:
-    logger.info(f"Error in stage {STAGE_NAME}: {e}")
-    raise NetworkSecurityException(e, sys) from e
+
+def run_pipeline(stage_name: str, pipeline_obj):
+    try:
+        logger.info(f">>>>>>>>>>>>>>>Stage {stage_name} started<<<<<<<<<<<<<<<<<<<<<<<<<")
+        pipeline_obj.main()
+        logger.info(f">>>>>>>>>>>>>>>Stage {stage_name} completed<<<<<<<<<<<<<<<<<<<<<<<")
+    except Exception as e:
+        logger.error(f"Error in stage {stage_name}: {e}")
+        raise NetworkSecurityException(e, sys) from e
 
 
-STAGE_NAME = "Data Validation Stage"
-try:
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} started<<<<<<<<<<<<<<<<<<<<<<<<<")
-    obj = DataValidationTrainingPipeline()
-    obj.main()
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} completed<<<<<<<<<<<<<<<<<<<<<<<")
-except Exception as e:
-    logger.info(f"Error in stage {STAGE_NAME}: {e}")
-    raise NetworkSecurityException(e, sys) from e
-
-STAGE_NAME = "Data Transformation Stage"
-try:
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} started<<<<<<<<<<<<<<<<<<<<<<<<<")
-    obj = DataTransformationTrainingPipeline()
-    obj.main()
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} completed<<<<<<<<<<<<<<<<<<<<<<<")
-except Exception as e:
-    logger.info(f"Error in stage {STAGE_NAME}: {e}")
-    raise NetworkSecurityException(e, sys) from e
-
-STAGE_NAME = "Model Trainer Stage"
-try:
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} started<<<<<<<<<<<<<<<<<<<<<<<<<")
-    obj = ModelTrainerPipeline()
-    obj.main()
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} completed<<<<<<<<<<<<<<<<<<<<<<<")
-except Exception as e:
-    logger.info(f"Error in stage {STAGE_NAME}: {e}")
-    raise NetworkSecurityException(e, sys) from e
-
-STAGE_NAME = "Model Evaluation Stage"
-try:
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} started<<<<<<<<<<<<<<<<<<<<<<<<<")
-    obj = ModelEvaluationTrainingPipeline()
-    obj.main()
-    logger.info(f">>>>>>>>>>>>>>>Stage {STAGE_NAME} completed<<<<<<<<<<<<<<<<<<<<<<<")
-except Exception as e:
-    logger.info(f"Error in stage {STAGE_NAME}: {e}")
-    raise NetworkSecurityException(e, sys) from e
+if __name__ == "__main__":
+    # Running each stage pipeline
+    run_pipeline("Data Ingestion Stage", DataIngestionTrainingPipeline())
+    run_pipeline("Data Validation Stage", DataValidationTrainingPipeline())
+    run_pipeline("Data Transformation Stage", DataTransformationTrainingPipeline())
+    run_pipeline("Model Trainer Stage", ModelTrainerPipeline())
+    run_pipeline("Model Evaluation Stage", ModelEvaluationTrainingPipeline())

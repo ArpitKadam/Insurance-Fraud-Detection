@@ -1,6 +1,7 @@
-import pandas as pd
+import os
 import joblib
 import mlflow
+import pandas as pd
 from pathlib import Path
 from mlflow.models.signature import infer_signature
 from sklearn.metrics import (
@@ -16,12 +17,15 @@ from sklearn.preprocessing import StandardScaler
 from src.Insurance_Fraud.logger.logger import logger
 from src.Insurance_Fraud.entity.config_entity import ModelEvaluationConfig
 from src.Insurance_Fraud.utils.common import save_json
-import os
 import dagshub
+
 dagshub.init(repo_owner='ArpitKadam', repo_name='Insurance-Fraud-Detection', mlflow=True)
+
+# Set environment variables for MLflow tracking
 os.environ['MLFLOW_TRACKING_URI'] = 'https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow'
 os.environ['MLFLOW_TRACKING_USERNAME'] = 'ArpitKadam'
 os.environ['MLFLOW_TRACKING_PASSWORD'] = '5989d6b56c4eec6ea090d927851d1fb5297a42a8'
+
 
 class ModelEvaluation:
     def __init__(self, config: ModelEvaluationConfig):
@@ -58,16 +62,15 @@ class ModelEvaluation:
             # Preprocess test data
             logger.info("Preparing test data for evaluation.")
             test_x = test_data.drop([self.config.target_column], axis=1)
-            logger.info(f"Test data shape: {test_x.columns}")
             test_y = test_data[self.config.target_column]
-            logger.info(f"Test data shape: {test_y.shape}")
+            logger.info(f"Test data shape: {test_x.shape}, Target data shape: {test_y.shape}")
+
             scaler = StandardScaler()
             test_x_scaled = scaler.fit_transform(test_x)  # Use fit_transform to ensure compatibility
             logger.info("Test data scaled successfully")
 
             # Set up MLflow tracking
             mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
-
             logger.info("Starting MLflow run.")
             with mlflow.start_run():
                 # Predict and evaluate metrics
@@ -81,11 +84,11 @@ class ModelEvaluation:
                 # Log metrics to MLflow
                 logger.info("Logging metrics to MLflow.")
                 for metric_name, metric_value in metrics.items():
-                    if isinstance(metric_value, list) or isinstance(metric_value, dict):
-                        # Skip complex objects for metrics
+                    if isinstance(metric_value, (list, dict)):  # Skip complex objects for metrics
                         continue
                     mlflow.log_metric(metric_name, metric_value)
                 logger.info("Metrics logged to MLflow.")
+
                 # Log all model parameters
                 logger.info("Logging parameters to MLflow.")
                 mlflow.log_params(self.config.all_params)
@@ -129,5 +132,5 @@ class ModelEvaluation:
                 logger.info("Model and metrics logged successfully.")
 
         except Exception as e:
-            logger.info(f"Error during model evaluation: {e}")
+            logger.error(f"Error during model evaluation: {e}")
             raise e

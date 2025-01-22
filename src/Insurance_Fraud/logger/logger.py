@@ -1,5 +1,4 @@
 import os
-import os
 import sys
 import logging
 from datetime import datetime
@@ -10,7 +9,7 @@ logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 # Define the directory where log files will be saved
 log_dir = "logs"
 
-# Create a unique log file name based on current timestamp
+# Create a unique log file name based on the current timestamp
 log_filepath = os.path.join(log_dir, f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log")
 
 # Create the log directory if it doesn't exist
@@ -28,5 +27,3 @@ logging.basicConfig(
 
 # Get the logger instance
 logger = logging.getLogger("InsuranceFraudDetectionLogger")
-
-

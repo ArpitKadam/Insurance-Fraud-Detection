@@ -2,11 +2,6 @@ import os
 from pathlib import Path
 import yaml
 import sys
-
-# Add the project root directory to sys.path
-project_root = Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(project_root))
-
 from src.Insurance_Fraud.logger.logger import logger
 from src.Insurance_Fraud.exception.exception import NetworkSecurityException
 from ensure import ensure_annotations
@@ -40,7 +35,6 @@ def create_directories(path_to_directories: list, verbose=True):
         raise NetworkSecurityException(e, sys) from e
 
 
-
 @ensure_annotations
 def save_json(path: Path, data: dict):
     # Ensure the path is a pathlib.Path object
@@ -50,6 +44,7 @@ def save_json(path: Path, data: dict):
     with open(path, 'w') as f:
         json.dump(data, f)
     logger.info(f"json file saved at: {path}")
+
 
 @ensure_annotations
 def load_json(path: Path) -> dict:
@@ -74,7 +69,6 @@ def load_bin(path: Path) -> Any:
 
 @ensure_annotations
 def get_size(path: Path) -> str:
-    size_in_kb = round(os.path.getsize(path)/1024)
+    size_in_kb = round(os.path.getsize(path) / 1024)
     logger.info(f"size of the file: {path} is {size_in_kb} KB")
     return size_in_kb
-    
