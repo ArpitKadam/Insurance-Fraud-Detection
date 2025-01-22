@@ -144,6 +144,6 @@ class ConfigurationManager:
             artifact_dir=config["artifact_dir"],
             mlflow_uri="https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection.mlflow",
             mlflow_experiment_name="insurance_fraud_experiment",
-            mlflow_run_name="run_3"  # Replace with your desired MLflow run name
+            mlflow_run_name="run_4"  # Replace with your desired MLflow run name
         )
         return model_evaluation_config  

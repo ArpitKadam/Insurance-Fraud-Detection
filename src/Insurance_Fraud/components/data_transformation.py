@@ -6,6 +6,7 @@ from src.Insurance_Fraud.entity.config_entity import DataTransformationConfig
 import os
 from src.Insurance_Fraud.logger.logger import logger
 import numpy as np
+import joblib
 
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
@@ -85,13 +86,33 @@ class DataTransformation:
         df.drop('policy_csl',axis=1,inplace=True)
         logger.info(f"One-hot encoding policy_csl column")
 
-        df['age_group'] = pd.cut(df['age'], bins=[0, 25, 35, 45, 55, 100], labels=['18-25', '26-35', '36-45', '46-55', '55+'])
-        logger.info(f"Creating age_group column")
+        df['age'] = pd.to_numeric(df['age'], errors='coerce')
+        logger.info(f"Converting age column to numeric")
 
+        df['age_group'] = pd.cut(df['age'], bins=[0, 25, 35, 45, 55, 100], labels=['18-25', '26-35', '36-45', '46-55', '55+']).astype(object)
+        logger.info(f"Creating age_group column")
+        df.drop('age', axis=1, inplace=True)
+        logger.info(f"Dropped age column")
+
+        encoder_dict = {}
         encoder = LabelEncoder()
-        df[df.select_dtypes(include=['object']).columns] = df[df.select_dtypes(include=['object']).columns].apply(encoder.fit_transform)
-        df['age_group'] = encoder.fit_transform(df['age_group'])
-        logger.info(f"Encoding categorical columns")
+        logger.info(f"Encoding categorical columns :- {df.select_dtypes(include=['object']).columns}")
+        
+        for col in df.select_dtypes(include=['object']).columns:
+            df[col] = encoder.fit_transform(df[col]).astype(int)
+            encoder_dict[col] = encoder
+        logger.info(f"Completed Encoding categorical columns")
+
+        save_dir = os.path.join("artifacts", "data_transformation")
+        file_name = "encoders.pkl"
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir, exist_ok=True)
+            logger.info(f"Created directory {save_dir}")
+        
+        file_path = os.path.join(save_dir, file_name)
+        joblib.dump(encoder_dict, file_path)
+        logger.info(f"Saved encoders to {file_path}")
+
 
         # Separate the majority and minority classes
         logger.info(f"Separating majority and minority classes")
