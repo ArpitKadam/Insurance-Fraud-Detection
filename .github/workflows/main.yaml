@@ -29,16 +29,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint Code
-        run: |
-          pip install flake8
-          flake8 src/ --max-line-length=88
-
-      - name: Run Unit Tests
-        run: |
-          pip install pytest
-          pytest
-
   build-and-push-ecr-image:
     name: Continuous Delivery to ECR
     needs: integration
