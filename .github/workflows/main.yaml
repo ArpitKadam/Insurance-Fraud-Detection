@@ -92,11 +92,11 @@ jobs:
 
       - name: Stop and Remove Existing Container
         run: |
-          docker ps -q --filter "name=insurance-fraud-detection" | grep -q . && docker stop insurance-fraud-detection && docker rm -fv insurance-fraud-detection
+          docker ps -q --filter "name=insurancefraud" | grep -q . && docker stop insurancefraud && docker rm -fv insurancefraud || echo "Container not running"
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 5000:5000 --name insurance-fraud-detection \
+          docker run -d -p 5000:5000 --name insurancefraud \
           -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
           -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
           -e AWS_REGION=${{ secrets.AWS_REGION }} \
