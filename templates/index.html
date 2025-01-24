@@ -1,3 +1,312 @@
+<<<<<<< HEAD
 version https://git-lfs.github.com/spec/v1
-oid sha256:5f472e9e2c3181714ebc158bd0d5e1e1602ec07a36647b8a8652bf63311e3046
-size 14341
+oid sha256:5b2870226a544052506c130d1559032fceb8ffe1cc6b8c9e03e5524770ec5dec
+size 14361
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Input</title>
+</head>
+<body>
+    <h1>Enter Insurance Claim Details for Fraud Prediction</h1>
+    <form action="/predict" method="POST">
+        <!-- Basic Information -->
+        <label for="months_as_customer">Months as Customer:</label>
+        <input type="number" name="months_as_customer" min="1" max="1200" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" min="18" max="120" required><br><br>
+
+        <label for="policy_bind_date">Policy Bind Date (1990-01-01 to 2015-12-31):</label>
+        <input type="date" name="policy_bind_date" min="1990-01-01" max="2015-12-31" required><br><br>
+
+        <label for="policy_state">Policy State:</label>
+        <select name="policy_state" required>
+            <option value="OH">OH</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+        </select><br><br>
+
+        <label for="policy_csl">Policy CSL:</label>
+        <select name="policy_csl" required>
+            <option value="250/500">250/500</option>
+            <option value="100/300">100/300</option>
+            <option value="500/1000">500/1000</option>
+        </select><br><br>
+
+        <label for="policy_deductable">Policy Deductible:</label>
+        <select name="policy_deductable" required>
+            <option value="1000">1000</option>
+            <option value="500">500</option>
+            <option value="2000">2000</option>
+        </select><br><br>
+
+        <label for="policy_annual_premium">Policy Annual Premium (400 to 2200):</label>
+        <input type="number" name="policy_annual_premium" min="400" max="2200" required><br><br>
+
+        <label for="umbrella_limit">Umbrella Limit:</label>
+        <select name="umbrella_limit" required>
+            <option value="0">0</option>
+            <option value="1000000">1,000,000</option>
+            <option value="2000000">2,000,000</option>
+            <option value="3000000">3,000,000</option>
+            <option value="4000000">4,000,000</option>
+            <option value="5000000">5,000,000</option>
+            <option value="6000000">6,000,000</option>
+            <option value="7000000">7,000,000</option>
+            <option value="8000000">8,000,000</option>
+            <option value="9000000">9,000,000</option>
+        </select><br><br>
+
+        <label for="insured_sex">Insured Sex:</label>
+        <select name="insured_sex" required>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+        </select><br><br>
+
+        <label for="insured_education_level">Insured Education Level:</label>
+        <select name="insured_education_level" required>
+            <option value="JD">JD</option>
+            <option value="High School">High School</option>
+            <option value="Associate">Associate</option>
+            <option value="MD">MD</option>
+            <option value="Masters">Masters</option>
+            <option value="PhD">PhD</option>
+            <option value="College">College</option>
+        </select><br><br>
+
+        <label for="insured_occupation">Insured Occupation:</label>
+        <select name="insured_occupation" required>
+            <option value="machine-op-inspct">Machine-op-inspct</option>
+            <option value="prof-specialty">Prof-specialty</option>
+            <option value="tech-support">Tech-support</option>
+            <option value="sales">Sales</option>
+            <option value="exec-managerial">Exec-managerial</option>
+            <option value="craft-repair">Craft-repair</option>
+            <option value="transport-moving">Transport-moving</option>
+            <option value="other-service">Other-service</option>
+            <option value="priv-house-serv">Priv-house-serv</option>
+            <option value="armed-forces">Armed-forces</option>
+            <option value="adm-clerical">Adm-clerical</option>
+            <option value="protective-serv">Protective-serv</option>
+            <option value="handlers-cleaners">Handlers-cleaners</option>
+            <option value="farming-fishing">Farming-fishing</option>
+        </select><br><br>
+
+        <label for="insured_relationship">Insured Relationship:</label>
+        <select name="insured_relationship" required>
+            <option value="own-child">Own-child</option>
+            <option value="other-relative">Other-relative</option>
+            <option value="not-in-family">Not-in-family</option>
+            <option value="husband">Husband</option>
+            <option value="wife">Wife</option>
+            <option value="unmarried">Unmarried</option>
+        </select><br><br>
+
+        <label for="capital_gains">Capital Gains (0 to 100500):</label>
+        <input type="number" name="capital_gains" min="0" max="100500" required><br><br>
+
+        <label for="capital_loss">Capital Loss (-111100 to 0):</label>
+        <input type="number" name="capital_loss" min="-111100" max="0" required><br><br>
+
+        <label for="incident_date">Incident Date (2015-01-01 to 2015-12-31):</label>
+        <input type="date" name="incident_date" min="2015-01-01" max="2015-12-31" required><br><br>
+
+        <label for="collision_type">Collision Type:</label>
+        <select name="collision_type" required>
+            <option value="Rear Collision">Rear Collision</option>
+            <option value="Side Collision">Side Collision</option>
+            <option value="Front Collision">Front Collision</option>
+            <option value="?">?</option>
+        </select><br><br>
+
+        <label for="incident_type">Incident Type:</label>
+        <select name="incident_type" required>
+            <option value="Multi-vehicle Collision">Multi-vehicle Collision</option>
+            <option value="Single Vehicle Collision">Single Vehicle Collision</option>
+            <option value="Vehicle Theft">Vehicle Theft</option>
+            <option value="Parked Car">Parked Car</option>
+        </select><br><br>
+
+        <label for="incident_severity">Incident Severity:</label>
+        <select name="incident_severity" required>
+            <option value="Minor Damage">Minor Damage</option>
+            <option value="Total Loss">Total Loss</option>
+            <option value="Major Damage">Major Damage</option>
+            <option value="Trivial Damage">Trivial Damage</option>
+        </select><br><br>
+
+        <label for="authorities_contacted">Authorities Contacted:</label>
+        <select name="authorities_contacted" required>
+            <option value="Police">Police</option>
+            <option value="Fire">Fire</option>
+            <option value="Other">Other</option>
+            <option value="Ambulance">Ambulance</option>
+            <option value="None">None</option>
+        </select><br><br>
+
+        <label for="incident_city">Incident City:</label>
+        <select name="incident_city" required>
+            <option value="Columbus">Columbus</option>
+            <option value="Riverwood">Riverwood</option>
+            <option value="Arlington">Arlington</option>
+            <option value="Springfield">Springfield</option>
+            <option value="Hillsdale">Hillsdale</option>
+            <option value="Northbend">Northbend</option>
+            <option value="Northbrook">Northbrook</option>
+        </select><br><br>
+
+        <label for="incident_state">Incident State:</label>
+        <select name="incident_state" required>
+            <option value="SC">SC</option>
+            <option value="VA">VA</option>
+            <option value="NY">NY</option>
+            <option value="OH">OH</option>
+            <option value="WV">WV</option>
+            <option value="NC">NC</option>
+            <option value="PA">PA</option>
+        </select><br><br>
+
+        <label for="incident_hour_of_the_day">Incident Hour of the Day (0 to 23):</label>
+        <input type="number" name="incident_hour_of_the_day" min="0" max="23" required><br><br>
+
+        <label for="number_of_vehicles_involved">Number of Vehicles Involved:</label>
+        <select name="number_of_vehicles_involved" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select><br><br>
+
+        <label for="property_damage">Property Damage:</label>
+        <select name="property_damage" required>
+            <option value="YES">Yes</option>
+            <option value="?">?</option>
+            <option value="NO">No</option>
+        </select><br><br>
+
+        <label for="bodily_injuries">Bodily Injuries:</label>
+        <select name="bodily_injuries" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br><br>
+
+        <label for="witnesses">Witnesses:</label>
+        <select name="witnesses" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br><br>
+
+        <label for="police_report_available">Police Report Available:</label>
+        <select name="police_report_available" required>
+            <option value="YES">Yes</option>
+            <option value="?">?</option>
+            <option value="NO">No</option>
+        </select><br><br>
+
+        <label for="total_claim_amount">Total Claim Amount (100 to 115000):</label>
+        <input type="number" name="total_claim_amount" min="100" max="115000" required><br><br>
+
+        <label for="injury_claim">Injury Claim (0 to 22000):</label>
+        <input type="number" name="injury_claim" min="0" max="22000" required><br><br>
+
+        <label for="property_claim">Property Claim (0 to 24000):</label>
+        <input type="number" name="property_claim" min="0" max="24000" required><br><br>
+
+        <label for="vehicle_claim">Vehicle Claim (0 to 80000):</label>
+        <input type="number" name="vehicle_claim" min="0" max="80000" required><br><br>
+
+        <label for="auto_make">Auto Make:</label>
+        <select name="auto_make" required>
+            <option value="Saab">Saab</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Dodge">Dodge</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Accura">Accura</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Audi">Audi</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Ford">Ford</option>
+            <option value="Suburu">Suburu</option>
+            <option value="BMW">BMW</option>
+            <option value="Jeep">Jeep</option>
+            <option value="Honda">Honda</option>
+            <option value="Volkswagen">Volkswagen</option>
+        </select><br><br>
+
+        <label for="auto_model">Auto Model:</label>
+        <select name="auto_model" required>
+            <option value="92x">92x</option>
+            <option value="E400">E400</option>
+            <option value="RAM">RAM</option>
+            <option value="Tahoe">Tahoe</option>
+            <option value="RSX">RSX</option>
+            <option value="95">95</option>
+            <option value="Pathfinder">Pathfinder</option>
+            <option value="A5">A5</option>
+            <option value="Camry">Camry</option>
+            <option value="F150">F150</option>
+            <option value="A3">A3</option>
+            <option value="Highlander">Highlander</option>
+            <option value="Neon">Neon</option>
+            <option value="MDX">MDX</option>
+            <option value="Maxima">Maxima</option>
+            <option value="Legacy">Legacy</option>
+            <option value="TL">TL</option>
+            <option value="Impreza">Impreza</option>
+            <option value="Forrestor">Forrestor</option>
+            <option value="Escape">Escape</option>
+            <option value="Corolla">Corolla</option>
+            <option value="3 Series">3 Series</option>
+            <option value="C300">C300</option>
+            <option value="Wrangler">Wrangler</option>
+            <option value="M5">M5</option>
+            <option value="X5">X5</option>
+            <option value="Civic">Civic</option>
+            <option value="Passat">Passat</option>
+            <option value="Silverado">Silverado</option>
+            <option value="CRV">CRV</option>
+            <option value="93">93</option>
+            <option value="Accord">Accord</option>
+            <option value="X6">X6</option>
+            <option value="Malibu">Malibu</option>
+            <option value="Fusion">Fusion</option>
+            <option value="Jetta">Jetta</option>
+            <option value="ML350">ML350</option>
+            <option value="Ultima">Ultima</option>
+            <option value="Grand Cherokee">Grand Cherokee</option>
+        </select><br><br>
+
+        <label for="auto_year">Auto Year (1995 to 2015):</label>
+        <input type="number" name="auto_year" min="1995" max="2015" required><br><br>
+
+        <button type="submit">Submit Prediction</button>
+    </form>
+
+    {% if prediction %}
+    <div class="mt-8 p-6 rounded-lg {% if prediction.prediction == true %}bg-red-100{% else %}bg-green-100{% endif %}">
+        <h2 class="text-2xl font-bold text-center mb-4">
+            {{ prediction.prediction_text }}
+        </h2>
+        <p class="text-center text-gray-700">
+            Confidence: {{ "%.2f"|format(prediction.probability * 100) }}%
+        </p>
+        <p class="text-center text-gray-700">
+            <strong>Prediction Result:</strong> {{ prediction }}
+        </p>
+    </div>
+{% endif %}
+
+{% if error %}
+    <div class="mt-8 p-6 rounded-lg bg-yellow-100">
+        <h2 class="text-2xl font-bold text-center mb-4">Error</h2>
+        <p class="text-center text-gray-700">{{ error }}</p>
+    </div>
+{% endif %}
+>>>>>>> 61dc2a36cdcaba045263d41c87d2a785d455e555
