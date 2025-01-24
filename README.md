@@ -10,7 +10,7 @@
 ![MLflow](https://img.shields.io/badge/MLflow-2.0-orange.svg)
 ![Dagshub](https://img.shields.io/badge/Dagshub-Enabled-brightgreen.svg)
 
-[Demo](https://insurance-fraud-detection-1.onrender.com) | [License](https://github.com/ArpitKadam/Insurance-Fraud-Detection/blob/main/LICENSE)
+[Demo](https://insurance-fraud-detection-1.onrender.com) | [License](https://github.com/ArpitKadam/Insurance-Fraud-Detection/blob/main/LICENSE) | [Dashboard](https://snapshots.raintank.io/dashboard/snapshot/z2B1dywVJmx9zMP5Ah0tm3mV2MletB0x)
 
 </div>
 
