@@ -3,12 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Input</title>
+    <title>Insurance Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .prediction-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .fraud {
+            background-color: #ffdddd;
+        }
+        .not-fraud {
+            background-color: #ddffdd;
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter Insurance Claim Details for Fraud Prediction</h1>
+    <h1>Insurance Claim Fraud Prediction</h1>
     <form action="/predict" method="POST">
-        <!-- Basic Information -->
         <label for="months_as_customer">Months as Customer:</label>
         <input type="number" name="months_as_customer" min="1" max="1200" required><br><br>
 
@@ -281,28 +317,32 @@
         <label for="auto_year">Auto Year (1995 to 2015):</label>
         <input type="number" name="auto_year" min="1995" max="2015" required><br><br>
 
-        <button type="submit">Submit Prediction</button>
+        <button type="submit">Submit for Fraud Prediction</button>
     </form>
 
     {% if prediction %}
-    <div class="mt-8 p-6 rounded-lg {% if prediction.prediction == true %}bg-red-100{% else %}bg-green-100{% endif %}">
-        <h2 class="text-2xl font-bold text-center mb-4">
-            {{ prediction.prediction_text }}
-        </h2>
-        <p class="text-center text-gray-700">
-            Confidence: {{ "%.2f"|format(prediction.probability * 100) }}%
-        </p>
-        <p class="text-center text-gray-700">
-            <strong>Prediction Result:</strong> {{ prediction }}
-        </p>
+    <div class="prediction-result {{ 'fraud' if prediction.prediction else 'not-fraud' }}">
+        <h3>Prediction Result</h3>
+        <p>{{ prediction.prediction_text }}</p>
+        <p>Confidence: {{ "%.2f"|format(prediction.probability * 100) }}%</p>
     </div>
-{% endif %}
+    {% endif %}
 
-{% if error %}
-    <div class="mt-8 p-6 rounded-lg bg-yellow-100">
-        <h2 class="text-2xl font-bold text-center mb-4">Error</h2>
-        <p class="text-center text-gray-700">{{ error }}</p>
+    {% if blockchain_result %}
+    <div class="blockchain-result">
+        <h3>Blockchain Result</h3>
+        <p><strong>Claim ID:</strong> {{ blockchain_result.claimId }}</p>
+        <p><strong>Claimant:</strong> {{ blockchain_result.claimant }}</p>
+        <p><strong>Amount:</strong> {{ blockchain_result.amount }}</p>
+        <p><strong>Is Fraud:</strong> {{ 'Yes' if blockchain_result.isFraud else 'No' }}</p>
     </div>
-{% endif %}
+    {% endif %}
+
+    {% if error %}
+    <div class="prediction-result" style="background-color: #fff3cd;">
+        <h3>Error</h3>
+        <p>{{ error }}</p>
+    </div>
+    {% endif %}
 </body>
 </html>

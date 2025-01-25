@@ -2,12 +2,12 @@ Status: True
 ****************************************************
 Data Description
 ****************************************************
-   months_as_customer  age  policy_number policy_bind_date  ...  auto_make auto_model  auto_year  fraud_reported
-0                 328   48         521585       2014-10-17  ...       Saab        92x       2004               Y
-1                 228   42         342868       2006-06-27  ...   Mercedes       E400       2007               Y
-2                 134   29         687698       2000-09-06  ...      Dodge        RAM       2007               N
-3                 256   41         227811       1990-05-25  ...  Chevrolet      Tahoe       2014               Y
-4                 228   44         367455       2014-06-06  ...     Accura        RSX       2009               N
+   months_as_customer  age  policy_number policy_bind_date policy_state  ... vehicle_claim  auto_make  auto_model  auto_year  fraud_reported
+0                 328   48         521585       2014-10-17           OH  ...         52080       Saab         92x       2004               Y
+1                 228   42         342868       2006-06-27           IN  ...          3510   Mercedes        E400       2007               Y
+2                 134   29         687698       2000-09-06           OH  ...         23100      Dodge         RAM       2007               N
+3                 256   41         227811       1990-05-25           IL  ...         50720  Chevrolet       Tahoe       2014               Y
+4                 228   44         367455       2014-06-06           IL  ...          4550     Accura         RSX       2009               N
 
 [5 rows x 39 columns]
 ****************************************************

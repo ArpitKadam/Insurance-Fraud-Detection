@@ -7,3 +7,7 @@ matplotlib==3.9.4
 seaborn==0.13.2
 dvc==3.59.0
 PyYAML==6.0.2
+web3==6.10.0
+py-solc-x==1.1.0
+eth-account==0.10.0
+python-dotenv==1.0.0

@@ -22,7 +22,7 @@ class PredictionPipeline:
         try:
             # Create a copy of input data
             df = input_data.copy()
-            print(df.columns)
+            # print(df.columns)
 
             # Drop unused columns
             columns_to_drop = [
