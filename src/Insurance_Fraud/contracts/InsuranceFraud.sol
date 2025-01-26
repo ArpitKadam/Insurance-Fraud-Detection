@@ -11,9 +11,11 @@ contract InsuranceFraud {
 
     mapping(uint256 => Claim) public claims;
     uint256 public nextClaimId;
+    uint256 public totalClaims;
 
     function fileClaim(uint256 amount) public {
         claims[nextClaimId] = Claim(nextClaimId, msg.sender, amount, false);
+        totalClaims++;
         nextClaimId++;
     }
 
@@ -24,5 +26,9 @@ contract InsuranceFraud {
 
     function getClaim(uint256 claimId) public view returns (Claim memory) {
         return claims[claimId];
+    }
+
+    function getTotalClaims() public view returns (uint256) {
+        return totalClaims;
     }
 }
