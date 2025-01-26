@@ -1,0 +1,23 @@
+So the final model selected will be Decision Tree Model with Random Search Hyperparameter Tuning
+Training Accuracy: 0.82
+Testing Accuracy: 0.79
+
+Best Parameters: {'splitter': 'random', 'min_samples_split': 20, 'min_samples_leaf': 5, 'max_features': None, 'max_depth': 3, 'criterion': 'entropy'}
+Best Accuracy: 0.82
+               
+Training Accuracy: 0.82
+Testing Accuracy: 0.79
+               
+Confusion Matrix:
+[[185  35]
+[ 28  52]]
+               
+Classification Report:
+            precision    recall  f1-score   support
+
+        0       0.87      0.84      0.85       220
+        1       0.60      0.65      0.62        80
+
+accuracy                            0.79        300
+macro avg       0.73      0.75      0.74       300
+weighted avg    0.80      0.79      0.79       300
