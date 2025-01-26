@@ -16,7 +16,7 @@ prediction_pipeline = PredictionPipeline()
 ganache_url = os.getenv("GANACHE_URL", "http://127.0.0.1:7545")  # Default to local Ganache
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-if not web3.isConnected():
+if not web3.is_connected():
     raise Exception("Failed to connect to the blockchain.")
 
 # Load contract ABI and deployed address
