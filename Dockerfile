@@ -17,7 +17,7 @@ ENV PYTHONPATH=/app/src
 COPY . /app
 
 # Step 6: Expose the application port
-EXPOSE 5000
+EXPOSE 8080
 
 # Step 7: Run the application
 CMD ["python", "app.py"]

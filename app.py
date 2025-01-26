@@ -16,7 +16,7 @@ prediction_pipeline = PredictionPipeline()
 ganache_url = os.getenv("GANACHE_URL", "http://127.0.0.1:7545")  # Default to local Ganache
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-if not web3.is_connected():
+if not web3.isConnected():
     raise Exception("Failed to connect to the blockchain.")
 
 # Load contract ABI and deployed address
@@ -120,6 +120,37 @@ def predict():
         print("Error:", str(e))
         return render_template('index.html', error=str(e))
 
+@app.route('/get-transaction/<tx_hash>', methods=['GET'])
+def get_transaction(tx_hash):
+    try:
+        # Retrieve the transaction details using the hash
+        transaction = web3.eth.get_transaction(tx_hash)
+        transaction_receipt = web3.eth.get_transaction_receipt(tx_hash)
+
+        # Format and return the response
+        return jsonify({
+            "transaction": {
+                "hash": transaction.hash.hex(),
+                "from": transaction["from"],
+                "to": transaction["to"],
+                "value": web3.fromWei(transaction["value"], "ether"),
+                "gas": transaction["gas"],
+                "gasPrice": web3.fromWei(transaction["gasPrice"], "gwei"),
+                "nonce": transaction["nonce"],
+                "blockNumber": transaction_receipt["blockNumber"],
+            },
+            "receipt": {
+                "status": "Success" if transaction_receipt["status"] == 1 else "Failed",
+                "logs": transaction_receipt["logs"],
+                "blockHash": transaction_receipt["blockHash"].hex(),
+            },
+        })
+
+    except Exception as e:
+        print("Error:", str(e))
+        return jsonify({"error": str(e)})
+
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080)
