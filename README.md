@@ -10,7 +10,7 @@
 ![MLflow](https://img.shields.io/badge/MLflow-2.0-orange.svg)
 ![Dagshub](https://img.shields.io/badge/Dagshub-Enabled-brightgreen.svg)
 
-[Demo](https://insurance-fraud-detection-1.onrender.com) | [License](https://github.com/ArpitKadam/Insurance-Fraud-Detection/blob/main/LICENSE) | [Dashboard](https://snapshots.raintank.io/dashboard/snapshot/z2B1dywVJmx9zMP5Ah0tm3mV2MletB0x)
+[License](https://github.com/ArpitKadam/Insurance-Fraud-Detection/blob/main/LICENSE) | [Dashboard](https://snapshots.raintank.io/dashboard/snapshot/z2B1dywVJmx9zMP5Ah0tm3mV2MletB0x) | [Dagshub](https://dagshub.com/ArpitKadam/Insurance-Fraud-Detection)
 
 </div>
 
@@ -263,12 +263,6 @@ docker login
 docker tag insurance-fraud-detection <your-dockerhub-username>/insurance-fraud-detection
 docker push <your-dockerhub-username>/insurance-fraud-detection
 ```
-
----
-
-## 🌟 Demo
-
-Experience the live demo at [https://insurance-fraud-detection-1.onrender.com](https://insurance-fraud-detection-1.onrender.com)
 
 ---
 
