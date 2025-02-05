@@ -196,7 +196,7 @@ pip install -r requirements.txt
    dagshub.init(repo_owner='<>', repo_name='<>', mlflow=True)
    ```
 
-3. **Configure MLflow Tracking**
+3. **Configure MLflow Tracking** 
    ```python
    import os
    os.environ['MLFLOW_TRACKING_URI'] = 'https://dagshub.com/<repo_owner>/<repo_name>.mlflow'
@@ -204,6 +204,16 @@ pip install -r requirements.txt
    os.environ['MLFLOW_TRACKING_PASSWORD'] = '<password>'  # From Settings -> Tokens
    ```
 
+4. **Configure a .env File**
+   ```python
+   ACCOUNT_ADDRESS=<>
+   PRIVATE_KEY=<>
+   GANACHE_URL=<>
+   CONTRACT_ADDRESS=<>
+   MLFLOW_TRACKING_URI=<>
+   MLFLOW_TRACKING_USERNAME=<>
+   MLFLOW_TRACKING_PASSWORD=<>
+   ```
 ---
 
 ## 💾 DVC Setup
